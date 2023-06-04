@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 // enable cross origin resourse sharing
 app.use(cors());
 
-app.get("/", (req, res) => {
+app.get("/get", (req, res) => {
     res.send("Hi!");
 });
 

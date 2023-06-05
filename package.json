@@ -2,7 +2,7 @@
     "name": "pnpm-fullstack-monorepo",
     "version": "1.0.0",
     "description": "",
-    "main": "/src/index.js",
+    "main": "src/index.js",
     "scripts": {
         "start": "pnpm --stream -r start",
         "start:dev": "pnpm --parallel --stream -r run start:dev",

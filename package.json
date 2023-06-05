@@ -1,13 +1,17 @@
 {
-  "name": "pnpm-fullstack-monorepo",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "pnpm --stream -r start"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+    "name": "pnpm-fullstack-monorepo",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "pnpm --stream -r start"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "workspaces": [
+        "./apps/*",
+        "./packages/*"
+    ]
 }

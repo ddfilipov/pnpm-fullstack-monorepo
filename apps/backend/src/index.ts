@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get("/get", (req, res) => {
-    res.send({ result: "qweawee!" });
+    res.send({ result: "bbeb!" });
 });
 
 app.listen(port, () => console.log(`App listening to PORT: ${port}`));

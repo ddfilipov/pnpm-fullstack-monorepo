@@ -37,6 +37,6 @@ app.use(bodyParser.json());
 // enable cross origin resourse sharing
 app.use((0, cors_1.default)());
 app.get("/get", (req, res) => {
-    res.send({ result: "Hello api!" });
+    res.send({ result: "qwe!" });
 });
 app.listen(port, () => console.log(`App listening to PORT: ${port}`));

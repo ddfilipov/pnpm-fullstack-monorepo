@@ -9,6 +9,16 @@
         "start": "node dist/index.js",
         "start:dev": "nodemon"
     },
+    "nodemonConfig": {
+        "verbose": true,
+        "watch": [
+            "src/"
+        ],
+        "ignore": [
+            "dist/*"
+        ],
+        "ext": "ts"
+    },
     "keywords": [],
     "author": "",
     "license": "ISC",

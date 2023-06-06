@@ -17,7 +17,8 @@
         "ignore": [
             "dist/*"
         ],
-        "ext": "ts"
+        "ext": "ts",
+        "exec": "pnpm start"
     },
     "keywords": [],
     "author": "",

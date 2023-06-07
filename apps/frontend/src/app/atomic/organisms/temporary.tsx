@@ -9,7 +9,6 @@ const Temporal: FC = () => {
         async function getData() {
             const response = await fetch(`${BASE_URL}/get`);
             const jsonReponse = await response.json();
-            console.log("jsonReponse.result:", jsonReponse.result);
             setData(jsonReponse.result);
         }
         getData();

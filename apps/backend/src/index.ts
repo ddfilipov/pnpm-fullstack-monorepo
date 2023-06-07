@@ -5,7 +5,6 @@ import { IPersonData } from "@pnpm-fullstack-monorepo/validation";
 
 const app = express();
 const port = 5000;
-// const port = process.env.PORT || 3000;
 
 // enable json in the request body
 app.use(bodyParser.json());

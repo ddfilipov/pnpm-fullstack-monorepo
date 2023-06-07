@@ -13,13 +13,22 @@ app.use(bodyParser.json());
 // enable cross origin resourse sharing
 app.use(cors());
 
-app.get("/get", (req, res) => {
-    const person: IPersonData = {
-        birthDate: new Date(),
-        money: 11,
+const people: IPersonData[] = [
+    {
+        name: "Pepe",
+        birthDate: new Date("2000-01-17"),
+        money: 10,
+    },
+    {
         name: "Berni Eclestone",
-    };
-    res.send({ result: JSON.stringify(person) });
+        money: 11,
+        birthDate: new Date("2000-01-17"),
+        vip: true,
+    },
+];
+
+app.get("/get", (req, res) => {
+    res.send({ result: JSON.stringify(people) });
 });
 
 app.listen(port, () => console.log(`App listening to PORT: ${port}`));

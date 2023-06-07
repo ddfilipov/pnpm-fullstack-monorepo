@@ -38,7 +38,7 @@ const people: IPersonData[] = [
 ];
 
 app.get("/get", (req, res) => {
-    res.send({ result: JSON.stringify(people) });
+    res.send({ result: people });
 });
 
 app.listen(port, () => console.log(`App listening to PORT: ${port}`));

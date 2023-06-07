@@ -12,7 +12,6 @@ const Temporal: FC = () => {
         }
         getData();
     }, []);
-    console.log("a vbererser data:", data);
     return <div>{data}</div>;
 };
 export default Temporal;

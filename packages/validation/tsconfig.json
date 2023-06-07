@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        "module": "ESNext",
+        "target": "ESNext",
+        "rootDir": "./src",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "declaration": true,
+        "declarationMap": true,
+        "outDir": "./dist/esm",
+        "isolatedModules": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "strict": true,
+        "strictFunctionTypes": true,
+        "alwaysStrict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitReturns": true,
+        "noUncheckedIndexedAccess": true,
+        "skipLibCheck": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "strictNullChecks": false,
+        "noImplicitAny": false,
+        "strictBindCallApply": false,
+        "forceConsistentCasingInFileNames": false,
+        "noFallthroughCasesInSwitch": false
+    },
+    "include": [
+        "./src/**/*.ts"
+    ]
+}

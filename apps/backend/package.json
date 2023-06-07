@@ -1,13 +1,13 @@
 {
-    "name": "backend",
+    "name": "@pnpm-fullstack-monorepo/backend",
     "version": "1.0.0",
     "description": "",
     "main": "dist/index.js",
     "scripts": {
-        "clean": "rm -rf build tsconfig.tsbuildinfo",
+        "prebuild": "rimraf build",
         "build": "tsc --incremental",
         "start": "node dist/index.js",
-        "start:dev": "nodemon"
+        "dev": "nodemon -w src/ -w ../../packages/**/dist --exec \"ts-node src/index.ts\""
     },
     "nodemonConfig": {
         "verbose": true,
@@ -18,21 +18,24 @@
             "dist/*"
         ],
         "ext": "ts",
-        "exec": "pnpm start"
+        "exec": "ts-node src/index.ts"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "@pnpm-fullstack-monorepo/validation": "workspace:^1.0.0",
         "body-parser": "^1.20.2",
         "cors": "^2.8.5",
         "express": "^4.18.2",
-        "nodemon": "^2.0.22"
+        "nodemon": "^2.0.22",
+        "rimraf": "^3.0.2"
     },
     "devDependencies": {
         "@types/body-parser": "^1.19.2",
         "@types/cors": "^2.8.13",
         "@types/express": "^4.17.17",
+        "ts-node": "^10.9.1",
         "typescript": "^5.1.3"
     }
 }

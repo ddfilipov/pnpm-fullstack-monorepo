@@ -14,12 +14,12 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get("/get", (req, res) => {
-  const person: IPersonData = {
-    birthDate: new Date(),
-    money: 11,
-    name: "Berni Eclestone",
-  };
-  res.send({ result: JSON.stringify(person) });
+    const person: IPersonData = {
+        birthDate: new Date(),
+        money: 11,
+        name: "Berni Eclestone",
+    };
+    res.send({ result: JSON.stringify(person) });
 });
 
 app.listen(port, () => console.log(`App listening to PORT: ${port}`));

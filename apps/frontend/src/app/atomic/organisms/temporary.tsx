@@ -13,6 +13,6 @@ const Temporal: FC = () => {
         }
         getData();
     }, []);
-    return <div>{data}</div>;
+    return <div>{JSON.stringify(data)}</div>;
 };
 export default Temporal;

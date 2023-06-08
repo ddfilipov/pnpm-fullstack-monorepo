@@ -22,7 +22,7 @@ const Temporal: FC = () => {
                         <ul>
                             <li>{person.money}</li>
                             <li>{person.birthDate.toString()}</li>
-                            <li>{person.vip}</li>
+                            {person.vip ? <li>VIP</li> : null}
                         </ul>
                     </Fragment>
                 );

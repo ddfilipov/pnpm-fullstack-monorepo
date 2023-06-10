@@ -1,4 +1,3 @@
-// "use client";
 import { FC, Fragment, useEffect, useState } from "react";
 import { IPersonData } from "@pnpm-fullstack-monorepo/validation";
 const BASE_URL = "http://localhost:5000";
@@ -13,6 +12,7 @@ const Temporal: FC = () => {
         }
         getData();
     }, []);
+
     return (
         <div>
             {data?.map((person) => {

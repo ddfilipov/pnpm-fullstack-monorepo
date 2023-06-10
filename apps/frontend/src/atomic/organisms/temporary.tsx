@@ -3,7 +3,16 @@ import { IPersonData } from "@pnpm-fullstack-monorepo/validation";
 import { styled } from "styled-components";
 const BASE_URL = "http://localhost:5000";
 
+const Wrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+`;
+
 const StyledBox = styled.div`
+    padding: 10px;
+    width: 300px;
     border: 1px solid black;
 `;
 
@@ -19,7 +28,7 @@ const Temporal: FC = () => {
     }, []);
 
     return (
-        <div>
+        <Wrapper>
             {data?.map((person) => {
                 return (
                     <StyledBox key={person.id}>
@@ -32,7 +41,7 @@ const Temporal: FC = () => {
                     </StyledBox>
                 );
             })}
-        </div>
+        </Wrapper>
     );
 };
 export default Temporal;

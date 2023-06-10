@@ -1,6 +1,11 @@
 import { FC, Fragment, useEffect, useState } from "react";
 import { IPersonData } from "@pnpm-fullstack-monorepo/validation";
+import { styled } from "styled-components";
 const BASE_URL = "http://localhost:5000";
+
+const StyledBox = styled.div`
+    border: 1px solid black;
+`;
 
 const Temporal: FC = () => {
     const [data, setData] = useState<IPersonData[]>([]);
@@ -17,14 +22,14 @@ const Temporal: FC = () => {
         <div>
             {data?.map((person) => {
                 return (
-                    <Fragment key={person.id}>
+                    <StyledBox key={person.id}>
                         <p>{person.name}</p>
                         <ul>
                             <li>{person.money}</li>
                             <li>{person.birthDate.toString()}</li>
                             {person.vip ? <li>VIP</li> : null}
                         </ul>
-                    </Fragment>
+                    </StyledBox>
                 );
             })}
         </div>

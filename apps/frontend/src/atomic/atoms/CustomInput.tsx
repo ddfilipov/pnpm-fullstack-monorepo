@@ -5,6 +5,11 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
     gap: 10px;
+    align-items: center;
+`;
+
+const StyledInput = styled.input`
+    padding: 5px;
 `;
 
 interface CustomInputProps {
@@ -18,7 +23,7 @@ const CustomInput: FC<CustomInputProps> = ({ value, onChange, htmlFor, label }) 
     return (
         <Wrapper>
             {label ? <label htmlFor={htmlFor}>{label}:</label> : null}
-            <input type="text" value={value}></input>
+            <StyledInput type="text" value={value} />
         </Wrapper>
     );
 };

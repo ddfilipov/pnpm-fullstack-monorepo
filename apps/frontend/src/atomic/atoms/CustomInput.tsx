@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { ChangeEvent, FC } from "react";
 import { styled } from "styled-components";
 
 const Wrapper = styled.div`
@@ -23,7 +23,7 @@ const CustomInput: FC<CustomInputProps> = ({ value, onChange, htmlFor, label }) 
     return (
         <Wrapper>
             {label ? <label htmlFor={htmlFor}>{label}:</label> : null}
-            <StyledInput type="text" value={value} />
+            <StyledInput type="text" value={value} onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value)} />
         </Wrapper>
     );
 };

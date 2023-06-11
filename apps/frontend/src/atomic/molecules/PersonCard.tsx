@@ -5,6 +5,8 @@ import CustomInput from "../atoms/CustomInput";
 import { Controller, useForm } from "react-hook-form";
 
 const StyledBox = styled.div`
+    display: flex;
+    flex-direction: column;
     padding: 10px;
     width: 300px;
     border: 1px solid #ffcc66;

@@ -1,7 +1,6 @@
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import { IPersonData } from "@pnpm-fullstack-monorepo/validation";
 import { styled } from "styled-components";
-const BASE_URL = "http://localhost:5000";
 
 const Wrapper = styled.div`
     display: flex;
@@ -16,20 +15,14 @@ const StyledBox = styled.div`
     border: 1px solid black;
 `;
 
-const PeopleList: FC = () => {
-    const [data, setData] = useState<IPersonData[]>([]);
-    useEffect(() => {
-        async function getData() {
-            const response = await fetch(`${BASE_URL}/get`);
-            const jsonReponse = await response.json();
-            setData(jsonReponse.result);
-        }
-        getData();
-    }, []);
+interface PeopleListProps {
+    people: IPersonData[];
+}
 
+const PeopleList: FC<PeopleListProps> = ({ people }) => {
     return (
         <Wrapper>
-            {data?.map((person) => {
+            {people?.map((person) => {
                 return (
                     <StyledBox key={person.id}>
                         <p>{person.name}</p>

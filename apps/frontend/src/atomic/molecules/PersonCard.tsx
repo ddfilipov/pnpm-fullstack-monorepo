@@ -3,6 +3,7 @@ import { IPersonData } from "@pnpm-fullstack-monorepo/validation";
 import { styled } from "styled-components";
 import CustomInput from "../atoms/CustomInput";
 import { Controller, useForm } from "react-hook-form";
+import CustomCheckbox from "../atoms/CustomCheckbox";
 
 const StyledBox = styled.div`
     display: flex;
@@ -16,6 +17,7 @@ const StyledBox = styled.div`
 interface InputValues {
     name: string;
     money: number;
+    isVip?: boolean;
 }
 
 interface PersonCardProps {
@@ -23,7 +25,7 @@ interface PersonCardProps {
 }
 
 const PersonCard: FC<PersonCardProps> = ({ person }) => {
-    const defaultValues: InputValues = { name: person.name, money: person.money };
+    const defaultValues: InputValues = { name: person.name, money: person.money, isVip: person.vip };
     const { register, control } = useForm({ defaultValues: defaultValues });
     return (
         <StyledBox key={person.id}>
@@ -41,9 +43,15 @@ const PersonCard: FC<PersonCardProps> = ({ person }) => {
                     <CustomInput value={value} onChange={onChange} htmlFor="money" label="Money" type="number" />
                 )}
             />
+            <Controller
+                name="isVip"
+                control={control}
+                render={({ field: { onChange, value } }) => (
+                    <CustomCheckbox value={value} onChange={onChange} htmlFor="isVip" label="Is VIP?" />
+                )}
+            />
             <ul>
                 <li>{person.birthDate.toString()}</li>
-                {person.vip ? <li>VIP</li> : null}
             </ul>
         </StyledBox>
     );

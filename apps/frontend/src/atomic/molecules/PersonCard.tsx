@@ -7,7 +7,8 @@ import { Controller, useForm } from "react-hook-form";
 const StyledBox = styled.div`
     padding: 10px;
     width: 300px;
-    border: 1px solid #FFCC66;
+    border: 1px solid #ffcc66;
+    border-radius: 10px;
 `;
 
 interface InputValues {

@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { IPersonData } from "@pnpm-fullstack-monorepo/validation";
 import { styled } from "styled-components";
+import CustomInput from "../atoms/CustomInput";
 
 const StyledBox = styled.div`
     padding: 10px;
@@ -15,7 +16,7 @@ interface PersonCardProps {
 const PersonCard: FC<PersonCardProps> = ({ person }) => {
     return (
         <StyledBox key={person.id}>
-            <p>{person.name}</p>
+            <CustomInput value={person.name} onChange={() => {}} htmlFor="name" label="Name" />
             <ul>
                 <li>{person.money}</li>
                 <li>{person.birthDate.toString()}</li>

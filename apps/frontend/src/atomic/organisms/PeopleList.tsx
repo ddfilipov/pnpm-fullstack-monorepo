@@ -1,4 +1,4 @@
-import { FC, Fragment, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { IPersonData } from "@pnpm-fullstack-monorepo/validation";
 import { styled } from "styled-components";
 const BASE_URL = "http://localhost:5000";
@@ -16,7 +16,7 @@ const StyledBox = styled.div`
     border: 1px solid black;
 `;
 
-const Temporal: FC = () => {
+const PeopleList: FC = () => {
     const [data, setData] = useState<IPersonData[]>([]);
     useEffect(() => {
         async function getData() {
@@ -44,4 +44,4 @@ const Temporal: FC = () => {
         </Wrapper>
     );
 };
-export default Temporal;
+export default PeopleList;

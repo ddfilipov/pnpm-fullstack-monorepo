@@ -28,7 +28,7 @@ const PersonCard: FC<PersonCardProps> = ({ person }) => {
                 name="name"
                 control={control}
                 render={({ field: { onChange, value } }) => (
-                    <CustomInput value={value} onChange={onChange} htmlFor="name" label="Name" />
+                    <CustomInput value={value} onChange={onChange} htmlFor="name" label="Name" type="text" />
                 )}
             />
             <ul>

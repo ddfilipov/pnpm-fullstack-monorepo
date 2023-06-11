@@ -13,6 +13,7 @@ const StyledBox = styled.div`
 
 interface InputValues {
     name: string;
+    money: number;
 }
 
 interface PersonCardProps {
@@ -20,7 +21,7 @@ interface PersonCardProps {
 }
 
 const PersonCard: FC<PersonCardProps> = ({ person }) => {
-    const defaultValues: InputValues = { name: person.name };
+    const defaultValues: InputValues = { name: person.name, money: person.money };
     const { register, control } = useForm({ defaultValues: defaultValues });
     return (
         <StyledBox key={person.id}>
@@ -31,8 +32,14 @@ const PersonCard: FC<PersonCardProps> = ({ person }) => {
                     <CustomInput value={value} onChange={onChange} htmlFor="name" label="Name" type="text" />
                 )}
             />
+            <Controller
+                name="money"
+                control={control}
+                render={({ field: { onChange, value } }) => (
+                    <CustomInput value={value} onChange={onChange} htmlFor="money" label="Money" type="number" />
+                )}
+            />
             <ul>
-                <li>{person.money}</li>
                 <li>{person.birthDate.toString()}</li>
                 {person.vip ? <li>VIP</li> : null}
             </ul>

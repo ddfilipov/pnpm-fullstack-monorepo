@@ -14,7 +14,7 @@ const StyledInput = styled.input`
 `;
 
 interface CustomInputProps {
-    value: string;
+    value: string | number;
     onChange: (val: string) => void;
     label?: string;
     htmlFor?: string;

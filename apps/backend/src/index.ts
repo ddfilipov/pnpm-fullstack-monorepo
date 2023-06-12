@@ -16,27 +16,27 @@ const people: IPersonData[] = [
     {
         id: 1,
         name: "Pepe",
-        birthDate: new Date("2000-01-17"),
+        dateOfBirth: new Date("2000-01-17"),
         money: 1000,
     },
     {
         id: 2,
         name: "Ana",
-        birthDate: new Date("1996-11-25"),
+        dateOfBirth: new Date("1996-11-25"),
         money: 1500,
     },
     {
         id: 3,
         name: "John",
-        birthDate: new Date("1984-10-29"),
+        dateOfBirth: new Date("1984-10-29"),
         money: 1600,
     },
     {
         id: 4,
         name: "Berni Eclestone",
         money: 1000000,
-        birthDate: new Date("1960-01-01"),
-        vip: true,
+        dateOfBirth: new Date("1960-01-01"),
+        isVip: true,
     },
 ];
 

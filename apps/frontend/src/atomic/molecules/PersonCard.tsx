@@ -29,8 +29,8 @@ const PersonCard: FC<PersonCardProps> = ({ person }) => {
     const defaultValues: InputValues = {
         name: person.name,
         money: person.money,
-        dateOfBirth: person.birthDate,
-        isVip: person.vip,
+        dateOfBirth: person.dateOfBirth,
+        isVip: person.isVip,
     };
     const { register, control } = useForm({ defaultValues: defaultValues });
     return (
@@ -70,7 +70,7 @@ const PersonCard: FC<PersonCardProps> = ({ person }) => {
                 )}
             />
             <ul>
-                <li>{person.birthDate.toString()}</li>
+                <li>{person.dateOfBirth.toString()}</li>
             </ul>
         </StyledBox>
     );

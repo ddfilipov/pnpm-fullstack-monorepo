@@ -1,7 +1,7 @@
 export interface IPersonData {
     id: number;
     name: string;
-    birthDate: Date;
+    dateOfBirth: Date;
     money: number;
-    vip?: boolean;
+    isVip?: boolean;
 }

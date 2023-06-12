@@ -50,13 +50,6 @@ const PersonCard: FC<PersonCardProps> = ({ person }) => {
                 )}
             />
             <Controller
-                name="isVip"
-                control={control}
-                render={({ field: { onChange, value } }) => (
-                    <CustomCheckbox value={value} onChange={onChange} htmlFor="isVip" label="Is VIP?" />
-                )}
-            />
-            <Controller
                 name="dateOfBirth"
                 control={control}
                 render={({ field: { onChange, value } }) => (
@@ -69,9 +62,14 @@ const PersonCard: FC<PersonCardProps> = ({ person }) => {
                     />
                 )}
             />
-            <ul>
-                <li>{person.dateOfBirth.toString()}</li>
-            </ul>
+            <p>{person.dateOfBirth.toString()}</p>
+            <Controller
+                name="isVip"
+                control={control}
+                render={({ field: { onChange, value } }) => (
+                    <CustomCheckbox value={value} onChange={onChange} htmlFor="isVip" label="Is VIP?" />
+                )}
+            />
         </StyledBox>
     );
 };

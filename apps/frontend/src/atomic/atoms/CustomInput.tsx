@@ -14,7 +14,7 @@ const StyledInput = styled.input`
 `;
 
 interface CustomInputProps {
-    value: string | number;
+    value: string | number | Date;
     onChange: (val: string) => void;
     label?: string;
     htmlFor?: string;
@@ -27,7 +27,7 @@ const CustomInput: FC<CustomInputProps> = ({ value, onChange, htmlFor, label, ty
             {label ? <label htmlFor={htmlFor}>{label}:</label> : null}
             <StyledInput
                 type={type}
-                value={value}
+                value={value.toString()}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
             />
         </Wrapper>

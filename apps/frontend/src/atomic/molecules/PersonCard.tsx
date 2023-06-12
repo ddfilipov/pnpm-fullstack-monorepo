@@ -17,6 +17,7 @@ const StyledBox = styled.div`
 interface InputValues {
     name: string;
     money: number;
+    dateOfBirth: Date;
     isVip?: boolean;
 }
 
@@ -25,7 +26,12 @@ interface PersonCardProps {
 }
 
 const PersonCard: FC<PersonCardProps> = ({ person }) => {
-    const defaultValues: InputValues = { name: person.name, money: person.money, isVip: person.vip };
+    const defaultValues: InputValues = {
+        name: person.name,
+        money: person.money,
+        dateOfBirth: person.birthDate,
+        isVip: person.vip,
+    };
     const { register, control } = useForm({ defaultValues: defaultValues });
     return (
         <StyledBox key={person.id}>
@@ -48,6 +54,19 @@ const PersonCard: FC<PersonCardProps> = ({ person }) => {
                 control={control}
                 render={({ field: { onChange, value } }) => (
                     <CustomCheckbox value={value} onChange={onChange} htmlFor="isVip" label="Is VIP?" />
+                )}
+            />
+            <Controller
+                name="dateOfBirth"
+                control={control}
+                render={({ field: { onChange, value } }) => (
+                    <CustomInput
+                        value={value}
+                        onChange={onChange}
+                        htmlFor="dateOfBirth"
+                        label="Date of Birth"
+                        type="date"
+                    />
                 )}
             />
             <ul>

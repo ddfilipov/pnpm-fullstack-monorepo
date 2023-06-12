@@ -12,6 +12,7 @@ const StyledBox = styled.div`
     width: 300px;
     border: 1px solid #ffcc66;
     border-radius: 10px;
+    min-width: 400px;
 `;
 
 interface InputValues {

@@ -3,8 +3,16 @@
 import { useEffect, useState } from "react";
 import PeopleList from "../atomic/organisms/PeopleList";
 import { IPersonData } from "@pnpm-fullstack-monorepo/validation";
+import { styled } from "styled-components";
 
 const BASE_URL = "http://localhost:5000";
+
+const Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    padding: 20px;
+`;
 
 export default function Home() {
     const [data, setData] = useState<IPersonData[]>([]);
@@ -19,10 +27,10 @@ export default function Home() {
     }, []);
 
     return (
-        <>
+        <Wrapper>
             <h1>People</h1>
             <p>You can add, delete and edit people.</p>
             <PeopleList people={data} />
-        </>
+        </Wrapper>
     );
 }

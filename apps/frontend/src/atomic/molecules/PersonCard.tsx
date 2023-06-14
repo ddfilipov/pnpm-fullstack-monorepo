@@ -55,7 +55,7 @@ const PersonCard: FC<PersonCardProps> = ({ person }) => {
                 control={control}
                 render={({ field: { onChange, value } }) => (
                     <CustomInput
-                        value={value}
+                        value={value.toISOString().split("T")[0]}
                         onChange={onChange}
                         htmlFor="dateOfBirth"
                         label="Date of Birth"
@@ -71,6 +71,7 @@ const PersonCard: FC<PersonCardProps> = ({ person }) => {
                     <CustomCheckbox value={value} onChange={onChange} htmlFor="isVip" label="Is VIP?" />
                 )}
             />
+            <input type="date" value={person.dateOfBirth.toString()} />
         </StyledBox>
     );
 };

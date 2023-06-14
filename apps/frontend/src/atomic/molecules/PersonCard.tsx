@@ -53,15 +53,17 @@ const PersonCard: FC<PersonCardProps> = ({ person }) => {
             <Controller
                 name="dateOfBirth"
                 control={control}
-                render={({ field: { onChange, value } }) => (
-                    <CustomInput
-                        value={value.toISOString().split("T")[0]}
-                        onChange={onChange}
-                        htmlFor="dateOfBirth"
-                        label="Date of Birth"
-                        type="date"
-                    />
-                )}
+                render={({ field: { onChange, value } }) => {
+                    return (
+                        <CustomInput
+                            value={value.split("T")[0]}
+                            onChange={onChange}
+                            htmlFor="dateOfBirth"
+                            label="Date of Birth"
+                            type="date"
+                        />
+                    );
+                }}
             />
             <p>{person.dateOfBirth.toString()}</p>
             <Controller

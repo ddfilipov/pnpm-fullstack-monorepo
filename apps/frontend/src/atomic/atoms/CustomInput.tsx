@@ -17,14 +17,13 @@ interface CustomInputProps {
     value: string | number | Date;
     onChange: (val: string) => void;
     label?: string;
-    htmlFor?: string;
     type?: HTMLInputTypeAttribute | undefined;
 }
 
-const CustomInput: FC<CustomInputProps> = ({ value, onChange, htmlFor, label, type }) => {
+const CustomInput: FC<CustomInputProps> = ({ value, onChange, label, type }) => {
     return (
         <Wrapper>
-            {label ? <label htmlFor={htmlFor}>{label}:</label> : null}
+            {label ? <label>{label}:</label> : null}
             <StyledInput
                 type={type}
                 value={value.toString()}

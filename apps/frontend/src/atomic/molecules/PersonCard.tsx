@@ -40,14 +40,14 @@ const PersonCard: FC<PersonCardProps> = ({ person }) => {
                 name="name"
                 control={control}
                 render={({ field: { onChange, value } }) => (
-                    <CustomInput value={value} onChange={onChange} htmlFor="name" label="Name" type="text" />
+                    <CustomInput value={value} onChange={onChange} label="Name" type="text" />
                 )}
             />
             <Controller
                 name="money"
                 control={control}
                 render={({ field: { onChange, value } }) => (
-                    <CustomInput value={value} onChange={onChange} htmlFor="money" label="Money" type="number" />
+                    <CustomInput value={value} onChange={onChange} label="Money" type="number" />
                 )}
             />
             <Controller
@@ -58,7 +58,6 @@ const PersonCard: FC<PersonCardProps> = ({ person }) => {
                         <CustomInput
                             value={value.toString().split("T")[0]}
                             onChange={onChange}
-                            htmlFor="dateOfBirth"
                             label="Date of Birth"
                             type="date"
                         />

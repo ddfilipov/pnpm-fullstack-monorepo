@@ -19,7 +19,7 @@ const PeopleList: FC<PeopleListProps> = ({ people }) => {
     return (
         <Wrapper>
             {people?.map((person) => {
-                return <PersonCard person={person} />;
+                return <PersonCard person={person} key={person.id} />;
             })}
         </Wrapper>
     );

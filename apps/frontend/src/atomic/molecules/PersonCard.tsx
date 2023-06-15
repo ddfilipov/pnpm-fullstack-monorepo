@@ -33,7 +33,7 @@ const PersonCard: FC<PersonCardProps> = ({ person }) => {
         dateOfBirth: person.dateOfBirth,
         isVip: person.isVip,
     };
-    const { register, control } = useForm({ defaultValues: defaultValues });
+    const { control } = useForm({ defaultValues: defaultValues });
     return (
         <StyledBox key={person.id}>
             <Controller

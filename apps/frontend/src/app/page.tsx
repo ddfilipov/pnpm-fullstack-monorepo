@@ -22,6 +22,7 @@ export default function Home() {
             const response = await fetch(`${BASE_URL}/get`);
             const jsonReponse = await response.json();
             setData(jsonReponse.result);
+            jsonReponse.result.map((person: any) => console.log(typeof person.dateOfBirth));
         }
         getData();
     }, []);

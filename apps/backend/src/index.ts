@@ -41,6 +41,7 @@ const people: IPersonData[] = [
 ];
 
 app.get("/get", (req, res) => {
+    people.map((person) => console.log(typeof person.name));
     res.send({ result: people });
 });
 

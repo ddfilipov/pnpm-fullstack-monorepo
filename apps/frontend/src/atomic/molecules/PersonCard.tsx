@@ -4,6 +4,7 @@ import { styled } from "styled-components";
 import CustomInput from "../atoms/CustomInput";
 import { Controller, useForm } from "react-hook-form";
 import CustomCheckbox from "../atoms/CustomCheckbox";
+import { BASE_URL } from "@/consts";
 
 const StyledBox = styled.div`
     display: flex;
@@ -35,8 +36,18 @@ const PersonCard: FC<PersonCardProps> = ({ person }) => {
     };
     const { control, handleSubmit } = useForm({ defaultValues: defaultValues });
 
-    const onSubmit = (data: InputValues) => {
+    const onSubmit = async (data: InputValues) => {
         console.log("showing data:", data);
+        const response = await fetch(`${BASE_URL}/post`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                name: data.name,
+                money: data.money,
+                dateOfBirth: data.dateOfBirth,
+                isVip: data.isVip,
+            }),
+        });
     };
 
     return (

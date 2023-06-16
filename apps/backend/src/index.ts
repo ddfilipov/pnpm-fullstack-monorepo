@@ -44,4 +44,8 @@ app.get("/get", (req, res) => {
     res.send({ result: people });
 });
 
+app.post("/post", (req, res) => {
+    
+})
+
 app.listen(port, () => console.log(`App listening to PORT: ${port}`));

@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { IPersonData } from "@pnpm-fullstack-monorepo/validation";
 import { styled } from "styled-components";
 import CustomInput from "../atoms/CustomInput";
@@ -28,6 +28,7 @@ interface PersonCardProps {
 }
 
 const PersonCard: FC<PersonCardProps> = ({ person }) => {
+    const [postResponse, setPostResponse] = useState<boolean>(false);
     const defaultValues: InputValues = {
         name: person.name,
         money: person.money,
@@ -48,10 +49,12 @@ const PersonCard: FC<PersonCardProps> = ({ person }) => {
                 isVip: data.isVip,
             }),
         });
+        setPostResponse(response.ok ? true : false);
     };
 
     return (
         <StyledBox key={person.id}>
+            <div>{postResponse ? "TRUE" : "FALSE"}</div>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Controller
                     name="name"

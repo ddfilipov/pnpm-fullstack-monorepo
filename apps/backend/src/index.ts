@@ -46,6 +46,8 @@ app.get("/get", (req, res) => {
 
 app.post("/post", (req, res) => {
     console.log("showing req:", req.body);
+
+    res.send({ result: "OK" });
 });
 
 app.listen(port, () => console.log(`App listening to PORT: ${port}`));

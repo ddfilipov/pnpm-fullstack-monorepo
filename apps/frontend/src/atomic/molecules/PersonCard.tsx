@@ -33,45 +33,53 @@ const PersonCard: FC<PersonCardProps> = ({ person }) => {
         dateOfBirth: person.dateOfBirth,
         isVip: person.isVip,
     };
-    const { control } = useForm({ defaultValues: defaultValues });
+    const { control, handleSubmit } = useForm({ defaultValues: defaultValues });
+
+    const onSubmit = (data: InputValues) => {
+        console.log("showing data:", data);
+    };
+
     return (
         <StyledBox key={person.id}>
-            <Controller
-                name="name"
-                control={control}
-                render={({ field: { onChange, value } }) => (
-                    <CustomInput value={value} onChange={onChange} label="Name" type="text" />
-                )}
-            />
-            <Controller
-                name="money"
-                control={control}
-                render={({ field: { onChange, value } }) => (
-                    <CustomInput value={value} onChange={onChange} label="Money" type="number" />
-                )}
-            />
-            <Controller
-                name="dateOfBirth"
-                control={control}
-                render={({ field: { onChange, value } }) => {
-                    return (
-                        <CustomInput
-                            value={value.toString().split("T")[0]}
-                            onChange={onChange}
-                            label="Date of Birth"
-                            type="date"
-                        />
-                    );
-                }}
-            />
-            <p>{person.dateOfBirth.toString()}</p>
-            <Controller
-                name="isVip"
-                control={control}
-                render={({ field: { onChange, value } }) => (
-                    <CustomCheckbox value={value} onChange={onChange} htmlFor="isVip" label="Is VIP?" />
-                )}
-            />
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <Controller
+                    name="name"
+                    control={control}
+                    render={({ field: { onChange, value } }) => (
+                        <CustomInput value={value} onChange={onChange} label="Name" type="text" />
+                    )}
+                />
+                <Controller
+                    name="money"
+                    control={control}
+                    render={({ field: { onChange, value } }) => (
+                        <CustomInput value={value} onChange={onChange} label="Money" type="number" />
+                    )}
+                />
+                <Controller
+                    name="dateOfBirth"
+                    control={control}
+                    render={({ field: { onChange, value } }) => {
+                        return (
+                            <CustomInput
+                                value={value.toString().split("T")[0]}
+                                onChange={onChange}
+                                label="Date of Birth"
+                                type="date"
+                            />
+                        );
+                    }}
+                />
+                <p>{person.dateOfBirth.toString()}</p>
+                <Controller
+                    name="isVip"
+                    control={control}
+                    render={({ field: { onChange, value } }) => (
+                        <CustomCheckbox value={value} onChange={onChange} htmlFor="isVip" label="Is VIP?" />
+                    )}
+                />
+                <button type="submit">SUBMIT</button>
+            </form>
         </StyledBox>
     );
 };

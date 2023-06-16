@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import PeopleList from "../atomic/organisms/PeopleList";
 import { IPersonData } from "@pnpm-fullstack-monorepo/validation";
 import { styled } from "styled-components";
+import { BASE_URL } from "@/consts";
 
-const BASE_URL = "http://localhost:5000";
 
 const Wrapper = styled.div`
     display: flex;

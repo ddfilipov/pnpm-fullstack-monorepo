@@ -46,6 +46,7 @@ app.get("/get", (req, res) => {
 
 app.post("/post", (req, res) => {
     console.log("showing req:", req.body);
+    // TODO: should modify our people object
 
     res.send({ result: "OK" });
 });

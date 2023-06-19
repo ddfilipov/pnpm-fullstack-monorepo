@@ -18,18 +18,21 @@ const people: IPersonData[] = [
         name: "Pepe",
         dateOfBirth: new Date("2000-01-17"),
         money: 1000,
+        isVip: false,
     },
     {
         id: 2,
         name: "Ana",
         dateOfBirth: new Date("1996-11-25"),
         money: 1500,
+        isVip: true,
     },
     {
         id: 3,
         name: "John",
         dateOfBirth: new Date("1984-10-29"),
         money: 1600,
+        isVip: false,
     },
     {
         id: 4,

@@ -12,13 +12,12 @@ interface CustomCheckboxProps {
     value: boolean | undefined;
     onChange: (val: boolean) => void;
     label?: string;
-    htmlFor?: string;
 }
 
-const CustomCheckbox: FC<CustomCheckboxProps> = ({ value, onChange, htmlFor, label }) => {
+const CustomCheckbox: FC<CustomCheckboxProps> = ({ value, onChange,  label }) => {
     return (
         <Wrapper>
-            {label ? <label htmlFor={htmlFor}>{label}:</label> : null}
+            {label ? <label>{label}:</label> : null}
             <input
                 type={"checkbox"}
                 checked={value}

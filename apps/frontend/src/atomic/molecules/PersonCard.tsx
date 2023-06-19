@@ -1,10 +1,9 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { IPersonData } from "@pnpm-fullstack-monorepo/validation";
 import { styled } from "styled-components";
 import CustomInput from "../atoms/CustomInput";
 import { Controller, useForm } from "react-hook-form";
 import CustomCheckbox from "../atoms/CustomCheckbox";
-import { BASE_URL } from "@/consts";
 
 const StyledBox = styled.div`
     display: flex;
@@ -30,7 +29,6 @@ interface PersonCardProps {
 }
 
 const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
-    const [postResponse, setPostResponse] = useState<boolean>(false);
     const defaultValues: InputValues = {
         id: person.id,
         name: person.name,
@@ -41,25 +39,11 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
     const { control, handleSubmit } = useForm({ defaultValues: defaultValues });
 
     const onSubmit = async (data: InputValues) => {
-        // console.log("showing data:", data);
-        // const response = await fetch(`${BASE_URL}/post`, {
-        //     method: "POST",
-        //     headers: { "Content-Type": "application/json" },
-        //     body: JSON.stringify({
-        //         id: person.id,
-        //         name: data.name,
-        //         money: data.money,
-        //         dateOfBirth: data.dateOfBirth,
-        //         isVip: data.isVip,
-        //     }),
-        // });
-        // setPostResponse(response.ok ? true : false);
         submitForm(data);
     };
 
     return (
         <StyledBox key={person.id}>
-            <div>{postResponse ? "TRUE" : "FALSE"}</div>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Controller
                     name="name"
@@ -94,7 +78,7 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
                     name="isVip"
                     control={control}
                     render={({ field: { onChange, value } }) => (
-                        <CustomCheckbox value={value} onChange={onChange} htmlFor="isVip" label="Is VIP?" />
+                        <CustomCheckbox value={value} onChange={onChange} label="Is VIP?" />
                     )}
                 />
                 <button type="submit">SUBMIT</button>

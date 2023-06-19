@@ -51,7 +51,7 @@ app.post("/post", (req, res) => {
     people.splice(foundId ?? people.length - 1, 1, req.body);
     console.log("newppl:", people);
 
-    res.send({ result: "OK" });
+    res.send({ result: people });
 });
 
 app.listen(port, () => console.log(`App listening to PORT: ${port}`));

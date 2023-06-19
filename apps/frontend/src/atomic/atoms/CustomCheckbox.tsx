@@ -14,13 +14,13 @@ interface CustomCheckboxProps {
     label?: string;
 }
 
-const CustomCheckbox: FC<CustomCheckboxProps> = ({ value, onChange,  label }) => {
+const CustomCheckbox: FC<CustomCheckboxProps> = ({ value, onChange, label }) => {
     return (
         <Wrapper>
             {label ? <label>{label}:</label> : null}
             <input
                 type={"checkbox"}
-                checked={value}
+                checked={value ?? false}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.checked)}
             />
         </Wrapper>

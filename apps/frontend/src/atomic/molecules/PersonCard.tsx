@@ -26,9 +26,10 @@ interface InputValues {
 
 interface PersonCardProps {
     person: IPersonData;
+    submitForm: (person: IPersonData) => void;
 }
 
-const PersonCard: FC<PersonCardProps> = ({ person }) => {
+const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
     const [postResponse, setPostResponse] = useState<boolean>(false);
     const defaultValues: InputValues = {
         id: person.id,
@@ -40,19 +41,20 @@ const PersonCard: FC<PersonCardProps> = ({ person }) => {
     const { control, handleSubmit } = useForm({ defaultValues: defaultValues });
 
     const onSubmit = async (data: InputValues) => {
-        console.log("showing data:", data);
-        const response = await fetch(`${BASE_URL}/post`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                id: person.id,
-                name: data.name,
-                money: data.money,
-                dateOfBirth: data.dateOfBirth,
-                isVip: data.isVip,
-            }),
-        });
-        setPostResponse(response.ok ? true : false);
+        // console.log("showing data:", data);
+        // const response = await fetch(`${BASE_URL}/post`, {
+        //     method: "POST",
+        //     headers: { "Content-Type": "application/json" },
+        //     body: JSON.stringify({
+        //         id: person.id,
+        //         name: data.name,
+        //         money: data.money,
+        //         dateOfBirth: data.dateOfBirth,
+        //         isVip: data.isVip,
+        //     }),
+        // });
+        // setPostResponse(response.ok ? true : false);
+        submitForm(data);
     };
 
     return (

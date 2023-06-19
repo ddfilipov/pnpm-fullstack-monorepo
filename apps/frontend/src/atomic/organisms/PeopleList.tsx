@@ -13,13 +13,14 @@ const Wrapper = styled.div`
 
 interface PeopleListProps {
     people: IPersonData[];
+    submitForm: (person: IPersonData) => void;
 }
 
-const PeopleList: FC<PeopleListProps> = ({ people }) => {
+const PeopleList: FC<PeopleListProps> = ({ people, submitForm }) => {
     return (
         <Wrapper>
             {people?.map((person) => {
-                return <PersonCard person={person} key={person.id} />;
+                return <PersonCard person={person} key={person.id} submitForm={submitForm} />;
             })}
         </Wrapper>
     );

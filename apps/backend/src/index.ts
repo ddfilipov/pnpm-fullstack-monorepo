@@ -47,8 +47,10 @@ app.get("/get", (req, res) => {
 app.post("/post", (req, res) => {
     console.log("showing req:", req.body);
     // TODO: should modify our people object
+    console.log("newListOfPeople:", people);
     const foundId = people.findIndex((person) => person.id === req.body.id);
-    console.log("foundId:", foundId);
+    const newListOfPeople = people.splice(foundId ?? people.length - 1, 1, req.body);
+    console.log("newListOfPeople:", newListOfPeople);
 
     res.send({ result: "OK" });
 });

@@ -17,6 +17,7 @@ const StyledBox = styled.div`
 `;
 
 interface InputValues {
+    id: number;
     name: string;
     money: number;
     dateOfBirth: Date;
@@ -30,6 +31,7 @@ interface PersonCardProps {
 const PersonCard: FC<PersonCardProps> = ({ person }) => {
     const [postResponse, setPostResponse] = useState<boolean>(false);
     const defaultValues: InputValues = {
+        id: person.id,
         name: person.name,
         money: person.money,
         dateOfBirth: person.dateOfBirth,
@@ -43,6 +45,7 @@ const PersonCard: FC<PersonCardProps> = ({ person }) => {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
+                id: person.id,
                 name: data.name,
                 money: data.money,
                 dateOfBirth: data.dateOfBirth,

@@ -4,6 +4,7 @@ import { styled } from "styled-components";
 import CustomInput from "../atoms/CustomInput";
 import { Controller, useForm } from "react-hook-form";
 import CustomCheckbox from "../atoms/CustomCheckbox";
+import { BASE_URL } from "@/consts";
 
 const StyledBox = styled.div`
     display: flex;
@@ -40,8 +41,20 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
     const { control, handleSubmit } = useForm({ defaultValues: defaultValues });
 
     const onSubmit = async (data: InputValues) => {
-        submitForm(data);
+        const response = await fetch(`${BASE_URL}/delete`, {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                id: person.id,
+            }),
+        });
+        console.log("resposneeee", response);
+        // submitForm(data);
     };
+
+    const deletePerson = async () => {
+        
+    }
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -83,6 +96,7 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
                     )}
                 />
                 <button type="submit">SUBMIT</button>
+                <button type="button" onClick={deletePerson}>DELETE</button>
             </StyledBox>
         </form>
     );

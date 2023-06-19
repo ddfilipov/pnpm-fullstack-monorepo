@@ -47,6 +47,8 @@ app.get("/get", (req, res) => {
 app.post("/post", (req, res) => {
     console.log("showing req:", req.body);
     // TODO: should modify our people object
+    const foundId = people.findIndex((person) => person.id === req.body.id);
+    console.log("foundId:", foundId);
 
     res.send({ result: "OK" });
 });

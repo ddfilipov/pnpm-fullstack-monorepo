@@ -13,6 +13,7 @@ const StyledBox = styled.div`
     border: 1px solid #ffcc66;
     border-radius: 10px;
     min-width: 400px;
+    gap: 10px;
 `;
 
 interface InputValues {
@@ -43,8 +44,8 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
     };
 
     return (
-        <StyledBox key={person.id}>
-            <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)}>
+            <StyledBox key={person.id}>
                 <Controller
                     name="name"
                     control={control}
@@ -82,8 +83,8 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
                     )}
                 />
                 <button type="submit">SUBMIT</button>
-            </form>
-        </StyledBox>
+            </StyledBox>
+        </form>
     );
 };
 export default PersonCard;

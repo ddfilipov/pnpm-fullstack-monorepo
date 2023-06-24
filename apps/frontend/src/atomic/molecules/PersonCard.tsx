@@ -94,7 +94,13 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
                         <CustomCheckbox value={value} onChange={onChange} label="Is VIP?" />
                     )}
                 />
-                <button type="submit">SUBMIT</button>
+                {!isEditMode ? (
+                    <button type="button" onClick={() => setIsEditMode(true)}>
+                        EDIT
+                    </button>
+                ) : (
+                    <button type="submit">SUBMIT</button>
+                )}
                 <button type="button" onClick={deletePerson}>
                     DELETE
                 </button>

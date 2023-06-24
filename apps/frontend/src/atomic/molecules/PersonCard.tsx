@@ -42,14 +42,15 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
     const { control, handleSubmit } = useForm({ defaultValues: defaultValues });
 
     const onSubmit = async (data: InputValues) => {
-        const response = await fetch(`${BASE_URL}/delete`, {
-            method: "DELETE",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                id: person.id,
-            }),
-        });
-        console.log("resposneeee", response);
+        console.log("que hago aqui?");
+        // const response = await fetch(`${BASE_URL}/delete`, {
+        //     method: "DELETE",
+        //     headers: { "Content-Type": "application/json" },
+        //     body: JSON.stringify({
+        //         id: person.id,
+        //     }),
+        // });
+        // console.log("resposneeee", response);
         // submitForm(data);
     };
 
@@ -94,12 +95,12 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
                         <CustomCheckbox value={value} onChange={onChange} label="Is VIP?" />
                     )}
                 />
-                {!isEditMode ? (
+                {isEditMode ? (
+                    <button type="submit">SUBMIT</button>
+                ) : (
                     <button type="button" onClick={() => setIsEditMode(true)}>
                         EDIT
                     </button>
-                ) : (
-                    <button type="submit">SUBMIT</button>
                 )}
                 <button type="button" onClick={deletePerson}>
                     DELETE

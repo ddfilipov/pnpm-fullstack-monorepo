@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { IPersonData } from "@pnpm-fullstack-monorepo/validation";
 import { styled } from "styled-components";
 import CustomInput from "../atoms/CustomInput";
@@ -31,6 +31,7 @@ interface PersonCardProps {
 }
 
 const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
+    const [isEditMode, setIsEditMode] = useState<boolean>(false);
     const defaultValues: InputValues = {
         id: person.id,
         name: person.name,
@@ -52,9 +53,7 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
         // submitForm(data);
     };
 
-    const deletePerson = async () => {
-        
-    }
+    const deletePerson = async () => {};
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -96,7 +95,9 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
                     )}
                 />
                 <button type="submit">SUBMIT</button>
-                <button type="button" onClick={deletePerson}>DELETE</button>
+                <button type="button" onClick={deletePerson}>
+                    DELETE
+                </button>
             </StyledBox>
         </form>
     );

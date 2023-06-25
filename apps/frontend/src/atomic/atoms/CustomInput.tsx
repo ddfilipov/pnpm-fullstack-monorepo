@@ -8,10 +8,10 @@ const Wrapper = styled.div`
     align-items: center;
 `;
 
-const StyledInput = styled.input<{ disabledStyle: boolean }>`
+const StyledInput = styled.input<{ disabledstyle: boolean }>`
     border-radius: 10px;
     padding: 10px;
-    background-color: ${(props) => (props.disabledStyle ? "#b6b3b3" : "white")};
+    background-color: ${(props) => (props.disabledstyle ? "#b6b3b3" : "white")};
 `;
 
 interface CustomInputProps {
@@ -31,7 +31,7 @@ const CustomInput: FC<CustomInputProps> = ({ value, onChange, label, type, disab
                 value={value.toString()}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
                 disabled={disabled}
-                disabledStyle={disabled ?? false}
+                disabledstyle={disabled ?? false}
             />
         </Wrapper>
     );

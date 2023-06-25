@@ -24,10 +24,12 @@ const StyledButtonsContainer = styled.div`
     gap: 10px;
 `;
 
-const StyledButton = styled.button`
+const StyledButton = styled.button<{ $backgroundColor: string }>`
     border-radius: 10px;
-    background-color: red;
+    background-color: #c94646;
+    background-color: ${(props) => props.$backgroundColor};
     border: none;
+    cursor: pointer;
 `;
 
 interface InputValues {
@@ -124,15 +126,20 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
                 />
                 <StyledButtonsContainer>
                     {isEditMode ? (
-                        <StyledButton type="submit" key="submitButton">
+                        <StyledButton type="submit" key="submitButton" $backgroundColor="white">
                             SUBMIT
                         </StyledButton>
                     ) : (
-                        <StyledButton type="button" onClick={() => setIsEditMode(true)} key="editButton">
+                        <StyledButton
+                            type="button"
+                            onClick={() => setIsEditMode(true)}
+                            key="editButton"
+                            $backgroundColor="white"
+                        >
                             EDIT
                         </StyledButton>
                     )}
-                    <StyledButton type="button" onClick={deletePerson}>
+                    <StyledButton type="button" onClick={deletePerson} $backgroundColor="#c94646">
                         DELETE
                     </StyledButton>
                 </StyledButtonsContainer>

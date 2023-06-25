@@ -17,6 +17,11 @@ const StyledBox = styled.div`
     gap: 10px;
 `;
 
+const StyledButtonsContainer = styled.div`
+    display: grid;
+    grid: 1fr 1fr;
+`;
+
 interface InputValues {
     id: number;
     name: string;
@@ -109,18 +114,20 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
                         <CustomCheckbox value={value} onChange={onChange} label="Is VIP?" disabled={!isEditMode} />
                     )}
                 />
-                {isEditMode ? (
-                    <button type="submit" key="submitButton">
-                        SUBMIT
+                <StyledButtonsContainer>
+                    {isEditMode ? (
+                        <button type="submit" key="submitButton">
+                            SUBMIT
+                        </button>
+                    ) : (
+                        <button type="button" onClick={() => setIsEditMode(true)} key="editButton">
+                            EDIT
+                        </button>
+                    )}
+                    <button type="button" onClick={deletePerson}>
+                        DELETE
                     </button>
-                ) : (
-                    <button type="button" onClick={() => setIsEditMode(true)} key="editButton">
-                        EDIT
-                    </button>
-                )}
-                <button type="button" onClick={deletePerson}>
-                    DELETE
-                </button>
+                </StyledButtonsContainer>
             </StyledBox>
         </form>
     );

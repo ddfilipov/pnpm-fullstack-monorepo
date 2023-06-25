@@ -63,14 +63,26 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
                     name="name"
                     control={control}
                     render={({ field: { onChange, value } }) => (
-                        <CustomInput value={value} onChange={onChange} label="Name" type="text" />
+                        <CustomInput
+                            value={value}
+                            onChange={onChange}
+                            label="Name"
+                            type="text"
+                            disabled={!isEditMode}
+                        />
                     )}
                 />
                 <Controller
                     name="money"
                     control={control}
                     render={({ field: { onChange, value } }) => (
-                        <CustomInput value={value} onChange={onChange} label="Money" type="number" />
+                        <CustomInput
+                            value={value}
+                            onChange={onChange}
+                            label="Money"
+                            type="number"
+                            disabled={!isEditMode}
+                        />
                     )}
                 />
                 <Controller

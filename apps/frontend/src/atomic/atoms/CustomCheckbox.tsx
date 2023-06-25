@@ -15,7 +15,7 @@ interface CustomCheckboxProps {
     disabled?: boolean;
 }
 
-const CustomCheckbox: FC<CustomCheckboxProps> = ({ value, onChange, label }) => {
+const CustomCheckbox: FC<CustomCheckboxProps> = ({ value, onChange, label, disabled }) => {
     return (
         <Wrapper>
             {label ? <label>{label}:</label> : null}
@@ -23,7 +23,7 @@ const CustomCheckbox: FC<CustomCheckboxProps> = ({ value, onChange, label }) => 
                 type={"checkbox"}
                 checked={value ?? false}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.checked)}
-                disabled
+                disabled={disabled}
             />
         </Wrapper>
     );

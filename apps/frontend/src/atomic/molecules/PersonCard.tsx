@@ -105,7 +105,7 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
                     name="isVip"
                     control={control}
                     render={({ field: { onChange, value } }) => (
-                        <CustomCheckbox value={value} onChange={onChange} label="Is VIP?" />
+                        <CustomCheckbox value={value} onChange={onChange} label="Is VIP?" disabled={!isEditMode} />
                     )}
                 />
                 {isEditMode ? (

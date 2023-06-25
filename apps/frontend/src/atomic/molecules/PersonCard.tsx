@@ -42,7 +42,7 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
     const { control, handleSubmit } = useForm({ defaultValues: defaultValues });
 
     const onSubmit = async (data: InputValues) => {
-        console.log("que hago aqui?");
+        // console.log("que hago aqui?");
         // const response = await fetch(`${BASE_URL}/delete`, {
         //     method: "DELETE",
         //     headers: { "Content-Type": "application/json" },
@@ -51,7 +51,8 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
         //     }),
         // });
         // console.log("resposneeee", response);
-        // submitForm(data);
+        setIsEditMode(false);
+        submitForm(data);
     };
 
     const deletePerson = async () => {};

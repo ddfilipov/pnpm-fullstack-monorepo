@@ -18,8 +18,10 @@ const StyledBox = styled.div`
 `;
 
 const StyledButtonsContainer = styled.div`
+    min-height: 50px;
     display: grid;
-    grid: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
 `;
 
 interface InputValues {

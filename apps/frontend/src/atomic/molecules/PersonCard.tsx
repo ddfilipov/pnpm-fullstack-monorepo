@@ -24,6 +24,12 @@ const StyledButtonsContainer = styled.div`
     gap: 10px;
 `;
 
+const StyledButton = styled.button`
+    border-radius: 10px;
+    background-color: red;
+    border: none;
+`;
+
 interface InputValues {
     id: number;
     name: string;
@@ -118,17 +124,17 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
                 />
                 <StyledButtonsContainer>
                     {isEditMode ? (
-                        <button type="submit" key="submitButton">
+                        <StyledButton type="submit" key="submitButton">
                             SUBMIT
-                        </button>
+                        </StyledButton>
                     ) : (
-                        <button type="button" onClick={() => setIsEditMode(true)} key="editButton">
+                        <StyledButton type="button" onClick={() => setIsEditMode(true)} key="editButton">
                             EDIT
-                        </button>
+                        </StyledButton>
                     )}
-                    <button type="button" onClick={deletePerson}>
+                    <StyledButton type="button" onClick={deletePerson}>
                         DELETE
-                    </button>
+                    </StyledButton>
                 </StyledButtonsContainer>
             </StyledBox>
         </form>

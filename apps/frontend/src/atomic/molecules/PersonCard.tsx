@@ -96,9 +96,11 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
                     )}
                 />
                 {isEditMode ? (
-                    <button type="submit">SUBMIT</button>
+                    <button type="submit" key="submitButton">
+                        SUBMIT
+                    </button>
                 ) : (
-                    <button type="button" onClick={() => setIsEditMode(true)}>
+                    <button type="button" onClick={() => setIsEditMode(true)} key="editButton">
                         EDIT
                     </button>
                 )}

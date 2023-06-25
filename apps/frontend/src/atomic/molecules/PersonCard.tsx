@@ -5,6 +5,7 @@ import CustomInput from "../atoms/CustomInput";
 import { Controller, useForm } from "react-hook-form";
 import CustomCheckbox from "../atoms/CustomCheckbox";
 import { BASE_URL } from "@/consts";
+import { appColors } from "@/utils/colors";
 
 const StyledBox = styled.div`
     display: flex;
@@ -26,7 +27,6 @@ const StyledButtonsContainer = styled.div`
 
 const StyledButton = styled.button<{ $backgroundColor: string }>`
     border-radius: 10px;
-    background-color: #c94646;
     background-color: ${(props) => props.$backgroundColor};
     border: none;
     cursor: pointer;
@@ -139,7 +139,7 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
                             EDIT
                         </StyledButton>
                     )}
-                    <StyledButton type="button" onClick={deletePerson} $backgroundColor="#c94646">
+                    <StyledButton type="button" onClick={deletePerson} $backgroundColor={appColors.red}>
                         DELETE
                     </StyledButton>
                 </StyledButtonsContainer>

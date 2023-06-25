@@ -83,6 +83,7 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
                                 onChange={onChange}
                                 label="Date of Birth"
                                 type="date"
+                                disabled={!isEditMode}
                             />
                         );
                     }}

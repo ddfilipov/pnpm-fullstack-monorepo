@@ -126,22 +126,30 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
                 />
                 <StyledButtonsContainer>
                     {isEditMode ? (
-                        <StyledButton type="submit" key="submitButton" $backgroundColor="white">
-                            SUBMIT
-                        </StyledButton>
+                        <>
+                            <StyledButton type="submit" key="submitButton" $backgroundColor="white">
+                                SUBMIT
+                            </StyledButton>
+                            <StyledButton type="button" onClick={() => setIsEditMode(false)} $backgroundColor="white">
+                                CANCEL
+                            </StyledButton>
+                        </>
                     ) : (
-                        <StyledButton
-                            type="button"
-                            onClick={() => setIsEditMode(true)}
-                            key="editButton"
-                            $backgroundColor="white"
-                        >
-                            EDIT
-                        </StyledButton>
+                        <>
+                            <StyledButton
+                                type="button"
+                                onClick={() => setIsEditMode(true)}
+                                key="editButton"
+                                $backgroundColor="white"
+                            >
+                                EDIT
+                            </StyledButton>
+
+                            <StyledButton type="button" onClick={deletePerson} $backgroundColor={appColors.red}>
+                                DELETE
+                            </StyledButton>
+                        </>
                     )}
-                    <StyledButton type="button" onClick={deletePerson} $backgroundColor={appColors.red}>
-                        DELETE
-                    </StyledButton>
                 </StyledButtonsContainer>
             </StyledBox>
         </form>

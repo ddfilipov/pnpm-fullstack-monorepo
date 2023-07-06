@@ -22,6 +22,7 @@ const PeopleList: FC<PeopleListProps> = ({ people, submitForm }) => {
             {people?.map((person) => {
                 return <PersonCard person={person} key={person.id} submitForm={submitForm} />;
             })}
+            <button type="button">ADD PERSON</button>
         </Wrapper>
     );
 };

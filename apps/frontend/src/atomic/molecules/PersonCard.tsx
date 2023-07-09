@@ -116,7 +116,6 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
                         );
                     }}
                 />
-                <p>{person.dateOfBirth.toString()}</p>
                 <Controller
                     name="isVip"
                     control={control}

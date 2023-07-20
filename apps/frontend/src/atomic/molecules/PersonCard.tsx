@@ -30,6 +30,7 @@ type ButtonType = "primary" | "secondary";
 const StyledButton = styled.button<{ $buttonType: ButtonType }>`
     border-radius: 10px;
     background-color: ${(props) => (props.$buttonType === "primary" ? "white" : appColors.red)};
+    color: ${(props) => (props.$buttonType === "primary" ? "black" : "white")};
     border: none;
     cursor: pointer;
 `;

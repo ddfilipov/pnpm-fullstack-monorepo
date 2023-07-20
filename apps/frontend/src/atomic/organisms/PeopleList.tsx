@@ -2,6 +2,7 @@ import { FC } from "react";
 import { IPersonData } from "@pnpm-fullstack-monorepo/validation";
 import { styled } from "styled-components";
 import PersonCard from "../molecules/PersonCard";
+import CustomButton from "../atoms/CustomButton";
 
 const Wrapper = styled.div`
     display: flex;
@@ -20,6 +21,7 @@ const ButtonContainer = styled.div`
     min-width: 400px;
     button {
         border-radius: 10px;
+        height: 100px;
     }
 `;
 
@@ -36,9 +38,7 @@ const PeopleList: FC<PeopleListProps> = ({ people, submitForm }) => {
                     return <PersonCard person={person} key={person.id} submitForm={submitForm} />;
                 })}
                 <ButtonContainer>
-                    <button type="button" style={{ height: "100px" }}>
-                        ADD PERSON
-                    </button>
+                    <CustomButton buttonInputType="primary" buttonType="button" label="ADD PERSON" />
                 </ButtonContainer>
             </Wrapper>
         </>

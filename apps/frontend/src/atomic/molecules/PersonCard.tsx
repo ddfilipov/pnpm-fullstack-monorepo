@@ -4,8 +4,8 @@ import { styled } from "styled-components";
 import CustomInput from "../atoms/CustomInput";
 import { Controller, useForm } from "react-hook-form";
 import CustomCheckbox from "../atoms/CustomCheckbox";
-import { BASE_URL } from "@/consts";
 import { appColors } from "@/utils/colors";
+import CustomButton from "../atoms/CustomButton";
 
 const StyledBox = styled.div`
     display: flex;
@@ -23,16 +23,6 @@ const StyledButtonsContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
-`;
-
-type ButtonType = "primary" | "secondary";
-
-const StyledButton = styled.button<{ $buttonType: ButtonType }>`
-    border-radius: 10px;
-    background-color: ${(props) => (props.$buttonType === "primary" ? "white" : appColors.red)};
-    color: ${(props) => (props.$buttonType === "primary" ? "black" : "white")};
-    border: none;
-    cursor: pointer;
 `;
 
 interface InputValues {
@@ -129,27 +119,33 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
                 <StyledButtonsContainer>
                     {isEditMode ? (
                         <>
-                            <StyledButton type="submit" key="submitButton" $buttonType="primary">
-                                SUBMIT
-                            </StyledButton>
-                            <StyledButton type="button" onClick={() => setIsEditMode(false)} $buttonType={"secondary"}>
-                                CANCEL
-                            </StyledButton>
+                            <CustomButton
+                                buttonInputType="primary"
+                                buttonType="submit"
+                                key="submitButton"
+                                label="EDIT"
+                            />
+                            <CustomButton
+                                buttonInputType="secondary"
+                                buttonType="button"
+                                label="CANCEL"
+                                onClick={() => setIsEditMode(false)}
+                            />
                         </>
                     ) : (
                         <>
-                            <StyledButton
-                                type="button"
+                            <CustomButton
+                                buttonInputType="primary"
+                                buttonType="button"
+                                label="EDIT"
                                 onClick={() => setIsEditMode(true)}
-                                key="editButton"
-                                $buttonType="primary"
-                            >
-                                EDIT
-                            </StyledButton>
-
-                            <StyledButton type="button" onClick={deletePerson} $buttonType={"secondary"}>
-                                DELETE
-                            </StyledButton>
+                            />
+                            <CustomButton
+                                buttonInputType="secondary"
+                                buttonType="button"
+                                label="DELETE"
+                                onClick={deletePerson}
+                            />
                         </>
                     )}
                 </StyledButtonsContainer>

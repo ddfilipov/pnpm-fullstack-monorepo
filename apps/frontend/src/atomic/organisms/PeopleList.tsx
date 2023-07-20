@@ -11,6 +11,18 @@ const Wrapper = styled.div`
     gap: 10px;
 `;
 
+const ButtonContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    width: 300px;
+    min-width: 400px;
+    button {
+        border-radius: 10px;
+    }
+`;
+
 interface PeopleListProps {
     people: IPersonData[];
     submitForm: (person: IPersonData) => void;
@@ -18,12 +30,18 @@ interface PeopleListProps {
 
 const PeopleList: FC<PeopleListProps> = ({ people, submitForm }) => {
     return (
-        <Wrapper>
-            {people?.map((person) => {
-                return <PersonCard person={person} key={person.id} submitForm={submitForm} />;
-            })}
-            <button type="button">ADD PERSON</button>
-        </Wrapper>
+        <>
+            <Wrapper>
+                {people?.map((person) => {
+                    return <PersonCard person={person} key={person.id} submitForm={submitForm} />;
+                })}
+                <ButtonContainer>
+                    <button type="button" style={{ height: "100px" }}>
+                        ADD PERSON
+                    </button>
+                </ButtonContainer>
+            </Wrapper>
+        </>
     );
 };
 export default PeopleList;

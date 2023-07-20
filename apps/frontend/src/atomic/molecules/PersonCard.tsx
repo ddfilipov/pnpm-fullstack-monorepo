@@ -25,9 +25,11 @@ const StyledButtonsContainer = styled.div`
     gap: 10px;
 `;
 
-const StyledButton = styled.button<{ $backgroundColor: string }>`
+type ButtonType = "primary" | "secondary";
+
+const StyledButton = styled.button<{ $buttonType: ButtonType }>`
     border-radius: 10px;
-    background-color: ${(props) => props.$backgroundColor};
+    background-color: ${(props) => (props.$buttonType === "primary" ? "white" : appColors.red)};
     border: none;
     cursor: pointer;
 `;
@@ -126,10 +128,10 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
                 <StyledButtonsContainer>
                     {isEditMode ? (
                         <>
-                            <StyledButton type="submit" key="submitButton" $backgroundColor="white">
+                            <StyledButton type="submit" key="submitButton" $buttonType="primary">
                                 SUBMIT
                             </StyledButton>
-                            <StyledButton type="button" onClick={() => setIsEditMode(false)} $backgroundColor="white">
+                            <StyledButton type="button" onClick={() => setIsEditMode(false)} $buttonType={"secondary"}>
                                 CANCEL
                             </StyledButton>
                         </>
@@ -139,12 +141,12 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
                                 type="button"
                                 onClick={() => setIsEditMode(true)}
                                 key="editButton"
-                                $backgroundColor="white"
+                                $buttonType="primary"
                             >
                                 EDIT
                             </StyledButton>
 
-                            <StyledButton type="button" onClick={deletePerson} $backgroundColor={appColors.red}>
+                            <StyledButton type="button" onClick={deletePerson} $buttonType={"secondary"}>
                                 DELETE
                             </StyledButton>
                         </>

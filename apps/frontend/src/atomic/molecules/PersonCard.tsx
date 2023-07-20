@@ -12,7 +12,7 @@ const StyledBox = styled.div`
     flex-direction: column;
     padding: 10px;
     width: 300px;
-    border: 1px solid #ffcc66;
+    border: 1px solid ${appColors.salmon};
     border-radius: 10px;
     min-width: 400px;
     gap: 10px;

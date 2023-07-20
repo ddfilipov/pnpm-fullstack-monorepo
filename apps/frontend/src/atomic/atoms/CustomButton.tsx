@@ -2,25 +2,29 @@ import { appColors } from "@/utils/colors";
 import { FC } from "react";
 import { styled } from "styled-components";
 
-const StyledButton = styled.button<{ $buttonType: ButtonType }>`
+const StyledButton = styled.button<{ $buttonInputType: ButtonInputType }>`
     border-radius: 10px;
-    background-color: ${(props) => (props.$buttonType === "primary" ? "white" : appColors.red)};
-    color: ${(props) => (props.$buttonType === "primary" ? "black" : "white")};
+    background-color: ${(props) => (props.$buttonInputType === "primary" ? "white" : appColors.red)};
+    color: ${(props) => (props.$buttonInputType === "primary" ? "black" : "white")};
     border: none;
     cursor: pointer;
 `;
 
-type ButtonType = "primary" | "secondary";
+type ButtonInputType = "primary" | "secondary";
 
 interface CustomButtonProps {
-    buttonType: ButtonType;
+    buttonInputType: ButtonInputType;
     label: string;
+    onClick?: React.MouseEventHandler;
+    buttonType: 'submit' | 'reset' | 'button' | undefined;
 }
 
-const CustomButton: FC<CustomButtonProps> = ({ buttonType, label }) => {
+const CustomButton: FC<CustomButtonProps> = ({ buttonInputType, label, onClick, buttonType }) => {
     return (
         <>
-            <StyledButton $buttonType={buttonType}>{label}</StyledButton>
+            <StyledButton $buttonInputType={buttonInputType} onClick={onClick} type={buttonType}>
+                {label}
+            </StyledButton>
         </>
     );
 };

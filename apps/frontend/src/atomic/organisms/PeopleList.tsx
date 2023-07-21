@@ -31,7 +31,7 @@ interface PeopleListProps {
     handleAddPerson: () => void;
 }
 
-const PeopleList: FC<PeopleListProps> = ({ people, submitForm }) => {
+const PeopleList: FC<PeopleListProps> = ({ people, submitForm, handleAddPerson }) => {
     return (
         <>
             <Wrapper>
@@ -39,7 +39,12 @@ const PeopleList: FC<PeopleListProps> = ({ people, submitForm }) => {
                     return <PersonCard person={person} key={person.id} submitForm={submitForm} />;
                 })}
                 <ButtonContainer>
-                    <CustomButton buttonInputType="primary" buttonType="button" label="ADD PERSON" />
+                    <CustomButton
+                        buttonInputType="primary"
+                        buttonType="button"
+                        label="ADD PERSON"
+                        onClick={handleAddPerson}
+                    />
                 </ButtonContainer>
             </Wrapper>
         </>

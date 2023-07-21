@@ -42,11 +42,21 @@ export default function Home() {
         setData(jsonReponse.result);
     };
 
+    const handleAddPerson = async () => {
+        const response = await fetch(`${BASE_URL}/add-person`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+        });
+
+        const jsonReponse = await response.json();
+        setData(jsonReponse.result);
+    };
+
     return (
         <Wrapper>
             <h1>People</h1>
             <p>You can add, delete and edit people.</p>
-            <PeopleList people={data} submitForm={submitForm} />
+            <PeopleList people={data} submitForm={submitForm} handleAddPerson={handleAddPerson}/>
         </Wrapper>
     );
 }

@@ -50,6 +50,9 @@ app.post("/post", (req, res) => {
 
     res.send({ result: people });
 });
+// should do a post to add ppl
+
+// should do a patch to check out how it works
 
 app.delete("/delete", (req, res) => {
     console.log("a ver ese delete", req.body);

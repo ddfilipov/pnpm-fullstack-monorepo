@@ -51,10 +51,11 @@ app.post("/post", (req, res) => {
     res.send({ result: people });
 });
 // should do a post to add ppl
-app.post("add-person", (req, res) => {
+app.post("/add-person", (req, res) => {
     // const newArrayOfPpl = { ...people, {id: "", } };
     const newArrayOfPpl = [...people, { id: "", name: "", dateOfBirth: "", money: 0 }];
-    res.send({ newArrayOfPpl });
+    console.log(newArrayOfPpl);
+    res.send({ result: newArrayOfPpl });
 });
 
 // should do a patch to check out how it works

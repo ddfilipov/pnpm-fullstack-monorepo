@@ -5,6 +5,7 @@ import PeopleList from "../atomic/organisms/PeopleList";
 import { IPersonData } from "@pnpm-fullstack-monorepo/validation";
 import { styled } from "styled-components";
 import { BASE_URL } from "@/consts";
+import { useFieldArray, useForm } from "react-hook-form";
 
 const Wrapper = styled.div`
     display: flex;
@@ -13,9 +14,29 @@ const Wrapper = styled.div`
     padding: 20px;
 `;
 
+interface InputValues {
+    id: number;
+    name: string;
+    money: number;
+    dateOfBirth: Date;
+    isVip?: boolean;
+}
+
 export default function Home() {
     const [data, setData] = useState<IPersonData[]>([]);
+    // const defaultValues: InputValues[] = {
+    //     id: person.id,
+    //     name: person.name,
+    //     money: person.money,
+    //     dateOfBirth: person.dateOfBirth,
+    //     isVip: person.isVip,
+    // };
+    // const { control, handleSubmit, reset } = useForm({ defaultValues: defaultValues });
 
+    const { fields, append, prepend, remove, swap, move, insert } = useFieldArray({
+        control, 
+        name: "test", 
+      });
     useEffect(() => {
         async function getData() {
             const response = await fetch(`${BASE_URL}/get`);
@@ -43,7 +64,6 @@ export default function Home() {
     };
 
     const handleAddPerson = async () => {
-        
         const response = await fetch(`${BASE_URL}/add-person`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -57,7 +77,7 @@ export default function Home() {
         <Wrapper>
             <h1>People</h1>
             <p>You can add, delete and edit people.</p>
-            <PeopleList people={data} submitForm={submitForm} handleAddPerson={handleAddPerson}/>
+            <PeopleList people={data} submitForm={submitForm} handleAddPerson={handleAddPerson} />
         </Wrapper>
     );
 }

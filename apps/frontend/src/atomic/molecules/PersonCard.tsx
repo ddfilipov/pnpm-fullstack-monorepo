@@ -85,6 +85,7 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
                 <Controller
                     name="money"
                     control={control}
+                    rules={{ required: "This field is required" }}
                     render={({ field: { onChange, value } }) => (
                         <CustomInput
                             value={value}
@@ -98,6 +99,7 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
                 <Controller
                     name="dateOfBirth"
                     control={control}
+                    rules={{ required: "This field is required" }}
                     render={({ field: { onChange, value } }) => {
                         return (
                             <CustomInput

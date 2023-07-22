@@ -43,6 +43,7 @@ export default function Home() {
     };
 
     const handleAddPerson = async () => {
+        
         const response = await fetch(`${BASE_URL}/add-person`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },

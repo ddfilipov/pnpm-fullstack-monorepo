@@ -39,6 +39,7 @@ interface PersonCardProps {
 }
 
 const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
+    // TODO: up this form state to page???
     const [isEditMode, setIsEditMode] = useState<boolean>(false);
     const defaultValues: InputValues = {
         id: person.id,

@@ -47,7 +47,7 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
         dateOfBirth: person.dateOfBirth,
         isVip: person.isVip,
     };
-    const { control, handleSubmit } = useForm({ defaultValues: defaultValues });
+    const { control, handleSubmit, reset } = useForm({ defaultValues: defaultValues });
 
     const onSubmit = async (data: InputValues) => {
         // console.log("que hago aqui?");
@@ -61,6 +61,11 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
         // console.log("resposneeee", response);
         setIsEditMode(false);
         submitForm(data);
+    };
+
+    const handleCancelEdit = () => {
+        setIsEditMode(false);
+        reset();
     };
 
     const deletePerson = async () => {};
@@ -132,7 +137,7 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
                                 buttonInputType="secondary"
                                 buttonType="button"
                                 label="CANCEL"
-                                onClick={() => setIsEditMode(false)}
+                                onClick={handleCancelEdit}
                             />
                         </>
                     ) : (

@@ -70,6 +70,7 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
             <StyledBox key={person.id}>
                 <Controller
                     name="name"
+                    rules={{ required: "This field is required" }}
                     control={control}
                     render={({ field: { onChange, value } }) => (
                         <CustomInput
@@ -123,7 +124,7 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
                                 buttonInputType="primary"
                                 buttonType="submit"
                                 key="submitButton"
-                                label="EDIT"
+                                label="SAVE"
                             />
                             <CustomButton
                                 buttonInputType="secondary"

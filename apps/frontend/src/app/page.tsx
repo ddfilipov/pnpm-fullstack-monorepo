@@ -19,15 +19,17 @@ interface InputValues {
 }
 
 export default function Home() {
-    const [data, setData] = useState<IPersonData[]>([]);
-    // const defaultValues: InputValues[] = {
-    //     id: person.id,
-    //     name: person.name,
-    //     money: person.money,
-    //     dateOfBirth: person.dateOfBirth,
-    //     isVip: person.isVip,
-    // };
-    const { control, handleSubmit, reset } = useForm<InputValues>({ defaultValues: defaultValues });
+    const [data, setData] = useState<InputValues>();
+    const defaultValues: InputValues = {
+        people: {
+            id: 0,
+            name: "",
+            money: 0,
+            dateOfBirth: new Date(),
+            isVip: false,
+        },
+    };
+    const { control, handleSubmit, reset } = useForm<InputValues>();
 
     const { fields, append, prepend, remove, swap, move, insert } = useFieldArray({
         control,
@@ -38,7 +40,8 @@ export default function Home() {
         async function getData() {
             const response = await fetch(`${BASE_URL}/get`);
             const jsonReponse = await response.json();
-            setData(jsonReponse.result);
+            console.log(jsonReponse.result);
+            setData({ people: jsonReponse.result });
         }
         getData();
     }, []);
@@ -74,7 +77,7 @@ export default function Home() {
         <Wrapper>
             <h1>People</h1>
             <p>You can add, delete and edit people.</p>
-            <PeopleList people={data} submitForm={submitForm} handleAddPerson={handleAddPerson} />
+            <PeopleList people={data?.people} submitForm={submitForm} handleAddPerson={handleAddPerson} />
         </Wrapper>
     );
 }

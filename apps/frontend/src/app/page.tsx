@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 `;
 
 interface InputValues {
-    person: IPersonData[];
+    people: IPersonData[];
 }
 
 export default function Home() {
@@ -27,11 +27,11 @@ export default function Home() {
     //     dateOfBirth: person.dateOfBirth,
     //     isVip: person.isVip,
     // };
-    const { control, handleSubmit, reset } = useForm({ defaultValues: defaultValues });
+    const { control, handleSubmit, reset } = useForm<InputValues>({ defaultValues: defaultValues });
 
     const { fields, append, prepend, remove, swap, move, insert } = useFieldArray({
         control,
-        name: "person",
+        name: "people",
     });
 
     useEffect(() => {

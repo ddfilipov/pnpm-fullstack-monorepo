@@ -21,13 +21,15 @@ interface InputValues {
 export default function Home() {
     const [data, setData] = useState<InputValues>();
     const defaultValues: InputValues = {
-        people: {
-            id: 0,
-            name: "",
-            money: 0,
-            dateOfBirth: new Date(),
-            isVip: false,
-        },
+        people: [
+            {
+                id: 0,
+                name: "",
+                money: 0,
+                dateOfBirth: new Date(),
+                isVip: false,
+            },
+        ],
     };
     const { control, handleSubmit, reset } = useForm<InputValues>();
 

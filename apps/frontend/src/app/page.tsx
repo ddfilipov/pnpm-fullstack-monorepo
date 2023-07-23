@@ -15,11 +15,7 @@ const Wrapper = styled.div`
 `;
 
 interface InputValues {
-    id: number;
-    name: string;
-    money: number;
-    dateOfBirth: Date;
-    isVip?: boolean;
+    person: IPersonData[];
 }
 
 export default function Home() {
@@ -31,12 +27,13 @@ export default function Home() {
     //     dateOfBirth: person.dateOfBirth,
     //     isVip: person.isVip,
     // };
-    // const { control, handleSubmit, reset } = useForm({ defaultValues: defaultValues });
+    const { control, handleSubmit, reset } = useForm({ defaultValues: defaultValues });
 
     const { fields, append, prepend, remove, swap, move, insert } = useFieldArray({
-        control, 
-        name: "test", 
-      });
+        control,
+        name: "person",
+    });
+
     useEffect(() => {
         async function getData() {
             const response = await fetch(`${BASE_URL}/get`);

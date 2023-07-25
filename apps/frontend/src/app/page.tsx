@@ -72,18 +72,18 @@ export default function Home() {
         });
 
         const jsonReponse = await response.json();
-        console.log("jsonResponse");
-        console.log(jsonReponse.result);
-        console.log("data.ppl");
-        console.log(data?.people);
-        setData(...data?.people, jsonReponse.result);
+        setData({ people: jsonReponse.result });
     };
 
     return (
         <Wrapper>
             <h1>People</h1>
             <p>You can add, delete and edit people.</p>
-            <PeopleList people={data?.people} submitForm={submitForm} handleAddPerson={handleAddPerson} />
+            <PeopleList
+                people={data?.people as IPersonData[]}
+                submitForm={submitForm}
+                handleAddPerson={handleAddPerson}
+            />
         </Wrapper>
     );
 }

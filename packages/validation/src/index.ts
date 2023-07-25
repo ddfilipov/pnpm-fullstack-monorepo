@@ -1,3 +1,6 @@
+export interface IPersonDataResponse {
+    people: IPersonData[];
+}
 export interface IPersonData {
     id: number;
     name: string;

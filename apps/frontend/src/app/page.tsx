@@ -62,6 +62,7 @@ export default function Home() {
         });
 
         const jsonReponse = await response.json();
+        console.log(jsonReponse);
         setData(jsonReponse.result);
     };
 

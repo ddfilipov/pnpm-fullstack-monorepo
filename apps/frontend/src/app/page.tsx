@@ -14,7 +14,7 @@ const Wrapper = styled.div`
     padding: 20px;
 `;
 
-interface InputValues {
+export interface InputValues {
     people: IPersonData[];
 }
 
@@ -71,9 +71,9 @@ export default function Home() {
             method: "POST",
             headers: { "Content-Type": "application/json" },
         });
-
         const jsonReponse = await response.json();
-        setData({ people: jsonReponse.result });
+        console.log(jsonReponse.result);
+        setData(jsonReponse.result);
     };
 
     return (

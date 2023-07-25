@@ -32,6 +32,7 @@ interface PeopleListProps {
 }
 
 const PeopleList: FC<PeopleListProps> = ({ people, submitForm, handleAddPerson }) => {
+    console.log(people);
     return (
         <>
             <Wrapper>

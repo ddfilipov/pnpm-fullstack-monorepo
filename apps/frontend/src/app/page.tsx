@@ -33,7 +33,7 @@ export default function Home() {
     };
     const { control, handleSubmit, reset } = useForm<InputValues>();
 
-    const { fields, append, prepend, remove, swap, move, insert } = useFieldArray({
+    const { fields, append, remove } = useFieldArray({
         control,
         name: "people",
     });
@@ -72,6 +72,7 @@ export default function Home() {
         });
 
         const jsonReponse = await response.json();
+        console.log(jsonReponse.result);
         setData(jsonReponse.result);
     };
 

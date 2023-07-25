@@ -81,7 +81,7 @@ export default function Home() {
             <h1>People</h1>
             <p>You can add, delete and edit people.</p>
             <PeopleList
-                people={data?.people as IPersonData[]}
+                people={data?.people as InputValues}
                 submitForm={submitForm}
                 handleAddPerson={handleAddPerson}
             />

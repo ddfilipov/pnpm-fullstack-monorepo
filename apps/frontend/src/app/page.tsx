@@ -44,7 +44,7 @@ export default function Home() {
             const jsonReponse = await response.json();
             console.log("-------- useEffect ---------");
             console.log(JSON.stringify(jsonReponse.result));
-            setData({ people: jsonReponse.result });
+            setData(jsonReponse.result);
         }
         getData();
     }, []);
@@ -75,18 +75,14 @@ export default function Home() {
         const jsonReponse = await response.json();
         console.log("-------- handleAddPerson ---------");
         console.log(JSON.stringify(jsonReponse.result));
-        setData({ people: jsonReponse.result });
+        setData(jsonReponse.result);
     };
 
     return (
         <Wrapper>
             <h1>People</h1>
             <p>You can add, delete and edit people.</p>
-            <PeopleList
-                people={data?.people as InputValues}
-                submitForm={submitForm}
-                handleAddPerson={handleAddPerson}
-            />
+            <PeopleList people={data?.people as InputValues} submitForm={submitForm} handleAddPerson={handleAddPerson} />
         </Wrapper>
     );
 }

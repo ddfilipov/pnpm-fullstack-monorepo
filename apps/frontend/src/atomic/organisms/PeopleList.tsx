@@ -37,7 +37,7 @@ const PeopleList: FC<PeopleListProps> = ({ people, submitForm, handleAddPerson }
     return (
         <>
             <Wrapper>
-                {people?.people?.map((person) => {
+                {people?.map((person) => {
                     return <PersonCard person={person} key={person.id} submitForm={submitForm} />;
                 })}
                 <ButtonContainer>

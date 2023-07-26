@@ -5,7 +5,7 @@ import PeopleList from "../atomic/organisms/PeopleList";
 import { IPersonData, IPersonDataResponse } from "@pnpm-fullstack-monorepo/validation";
 import { styled } from "styled-components";
 import { BASE_URL } from "@/consts";
-import { useFieldArray, useForm } from "react-hook-form";
+import { FormProvider, useFieldArray, useForm } from "react-hook-form";
 
 const Wrapper = styled.div`
     display: flex;
@@ -29,10 +29,10 @@ export default function Home() {
             },
         ],
     };
-    const { control, handleSubmit, reset } = useForm<InputValues>();
+    const methods = useForm<InputValues>();
 
     const { fields, append, remove } = useFieldArray({
-        control,
+        control: methods.control,
         name: "people",
     });
 
@@ -80,11 +80,13 @@ export default function Home() {
         <Wrapper>
             <h1>People</h1>
             <p>You can add, delete and edit people.</p>
-            <PeopleList
-                people={data?.people as IPersonData[]}
-                submitForm={submitForm}
-                handleAddPerson={handleAddPerson}
-            />
+            <FormProvider {...methods}>
+                <PeopleList
+                    people={data?.people as IPersonData[]}
+                    submitForm={submitForm}
+                    handleAddPerson={handleAddPerson}
+                />
+            </FormProvider>
         </Wrapper>
     );
 }

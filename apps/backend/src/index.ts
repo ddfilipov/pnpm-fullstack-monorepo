@@ -43,6 +43,7 @@ const peopleObject: IPersonDataResponse = {
 };
 
 app.get("/get", (req, res) => {
+    console.log(peopleObject);
     res.send({ result: peopleObject });
 });
 

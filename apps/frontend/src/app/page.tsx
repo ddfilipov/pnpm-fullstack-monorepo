@@ -42,7 +42,8 @@ export default function Home() {
         async function getData() {
             const response = await fetch(`${BASE_URL}/get`);
             const jsonReponse = await response.json();
-            console.log(jsonReponse.result);
+            console.log("-------- useEffect ---------");
+            console.log(JSON.stringify(jsonReponse.result));
             setData({ people: jsonReponse.result });
         }
         getData();
@@ -72,8 +73,9 @@ export default function Home() {
             headers: { "Content-Type": "application/json" },
         });
         const jsonReponse = await response.json();
-        console.log(jsonReponse.result);
-        setData(jsonReponse.result);
+        console.log("-------- handleAddPerson ---------");
+        console.log(JSON.stringify(jsonReponse.result));
+        setData({ people: jsonReponse.result });
     };
 
     return (

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import PeopleList from "../atomic/organisms/PeopleList";
-import { IPersonData } from "@pnpm-fullstack-monorepo/validation";
+import { IPersonData, IPersonDataResponse } from "@pnpm-fullstack-monorepo/validation";
 import { styled } from "styled-components";
 import { BASE_URL } from "@/consts";
 import { useFieldArray, useForm } from "react-hook-form";
@@ -14,9 +14,7 @@ const Wrapper = styled.div`
     padding: 20px;
 `;
 
-export interface InputValues {
-    people: IPersonData[];
-}
+export interface InputValues extends IPersonDataResponse {}
 
 export default function Home() {
     const [data, setData] = useState<InputValues>();

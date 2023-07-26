@@ -27,7 +27,7 @@ const ButtonContainer = styled.div`
 `;
 
 interface PeopleListProps {
-    people: InputValues;
+    people: IPersonData[];
     submitForm: (person: IPersonData) => void;
     handleAddPerson: () => void;
 }

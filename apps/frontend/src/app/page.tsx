@@ -14,33 +14,36 @@ const Wrapper = styled.div`
     padding: 20px;
 `;
 
-interface InputValues {
-    id: number;
-    name: string;
-    money: number;
-    dateOfBirth: Date;
-    isVip?: boolean;
+export interface InputValues {
+    people: IPersonData[];
 }
 
 export default function Home() {
-    const [data, setData] = useState<IPersonData[]>([]);
-    // const defaultValues: InputValues[] = {
-    //     id: person.id,
-    //     name: person.name,
-    //     money: person.money,
-    //     dateOfBirth: person.dateOfBirth,
-    //     isVip: person.isVip,
-    // };
-    // const { control, handleSubmit, reset } = useForm({ defaultValues: defaultValues });
+    const [data, setData] = useState<InputValues>();
+    const defaultValues: InputValues = {
+        people: [
+            {
+                id: 0,
+                name: "",
+                money: 0,
+                dateOfBirth: new Date(),
+                isVip: false,
+            },
+        ],
+    };
+    const { control, handleSubmit, reset } = useForm<InputValues>();
 
-    const { fields, append, prepend, remove, swap, move, insert } = useFieldArray({
-        control, 
-        name: "test", 
-      });
+    const { fields, append, remove } = useFieldArray({
+        control,
+        name: "people",
+    });
+
     useEffect(() => {
         async function getData() {
             const response = await fetch(`${BASE_URL}/get`);
             const jsonReponse = await response.json();
+            console.log("-------- useEffect ---------");
+            console.log(JSON.stringify(jsonReponse.result));
             setData(jsonReponse.result);
         }
         getData();
@@ -60,6 +63,7 @@ export default function Home() {
         });
 
         const jsonReponse = await response.json();
+        console.log(jsonReponse);
         setData(jsonReponse.result);
     };
 
@@ -68,8 +72,9 @@ export default function Home() {
             method: "POST",
             headers: { "Content-Type": "application/json" },
         });
-
         const jsonReponse = await response.json();
+        console.log("-------- handleAddPerson ---------");
+        console.log(JSON.stringify(jsonReponse.result));
         setData(jsonReponse.result);
     };
 
@@ -77,7 +82,11 @@ export default function Home() {
         <Wrapper>
             <h1>People</h1>
             <p>You can add, delete and edit people.</p>
-            <PeopleList people={data} submitForm={submitForm} handleAddPerson={handleAddPerson} />
+            <PeopleList
+                people={data?.people as IPersonData[]}
+                submitForm={submitForm}
+                handleAddPerson={handleAddPerson}
+            />
         </Wrapper>
     );
 }

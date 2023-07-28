@@ -55,11 +55,7 @@ app.post("/post", (req, res) => {
 });
 // should do a post to add ppl
 app.post("/add-person", (req, res) => {
-    // const newArrayOfPpl = { ...people, {id: "", } };
-    // const newArrayOfPpl = [...peopleObject, { id: "", name: "", dateOfBirth: "", money: 0 }];
-    // const newArrayOfPpl = { people: [...peopleObject.people, { id: "", name: "", dateOfBirth: "", money: 0 }] };
     peopleObject.people.push({ id: 0, name: "", dateOfBirth: new Date(), money: 0 });
-    // console.log(newArrayOfPpl);
     res.send({ result: peopleObject });
 });
 

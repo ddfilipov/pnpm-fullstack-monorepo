@@ -57,9 +57,10 @@ app.post("/post", (req, res) => {
 app.post("/add-person", (req, res) => {
     // const newArrayOfPpl = { ...people, {id: "", } };
     // const newArrayOfPpl = [...peopleObject, { id: "", name: "", dateOfBirth: "", money: 0 }];
-    const newArrayOfPpl = { people: [...peopleObject.people, { id: "", name: "", dateOfBirth: "", money: 0 }] };
-    console.log(newArrayOfPpl);
-    res.send({ result: newArrayOfPpl });
+    // const newArrayOfPpl = { people: [...peopleObject.people, { id: "", name: "", dateOfBirth: "", money: 0 }] };
+    peopleObject.people.push({ id: 0, name: "", dateOfBirth: new Date(), money: 0 });
+    // console.log(newArrayOfPpl);
+    res.send({ result: peopleObject });
 });
 
 // should do a patch to check out how it works

@@ -55,9 +55,9 @@ app.post("/post", (req, res) => {
 });
 // should do a post to add ppl
 app.post("/add-person", (req, res) => {
-    const nextId = peopleObject.people.flatMap((x) => x.id);
+    const nextId: number[] = peopleObject.people.flatMap((x) => x.id);
     console.log(nextId);
-    peopleObject.people.push({ id: 0, name: "", dateOfBirth: new Date(), money: 0 });
+    peopleObject.people.push({ id: Math.max(...nextId), name: "", dateOfBirth: new Date(), money: 0 });
     res.send({ result: peopleObject });
 });
 

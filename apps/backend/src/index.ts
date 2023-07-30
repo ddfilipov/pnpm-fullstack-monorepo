@@ -53,7 +53,7 @@ app.post("/post", (req, res) => {
 
     res.send({ result: peopleObject });
 });
-// should do a post to add ppl
+// response should update peopleObject but the response should be just the new person that has been added
 app.post("/add-person", (req, res) => {
     const nextId: number[] = peopleObject.people.flatMap((x) => x.id);
     console.log(nextId);

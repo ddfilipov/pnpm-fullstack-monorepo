@@ -5,7 +5,7 @@ import PeopleList from "../atomic/organisms/PeopleList";
 import { IPersonData, IPersonDataResponse } from "@pnpm-fullstack-monorepo/validation";
 import { styled } from "styled-components";
 import { BASE_URL } from "@/consts";
-import { FormProvider, useFieldArray, useForm } from "react-hook-form";
+import { FormProvider, useFieldArray, useForm, useWatch } from "react-hook-form";
 
 const Wrapper = styled.div`
     display: flex;
@@ -35,17 +35,18 @@ export default function Home() {
         control: methods.control,
         name: "people",
     });
-
+    const dataWatch = useWatch({ control: methods.control, name: "people" });
     useEffect(() => {
         async function getData() {
             const response = await fetch(`${BASE_URL}/get`);
             const jsonReponse = await response.json();
             console.log("-------- useEffect ---------");
             console.log(JSON.stringify(jsonReponse.result));
+            console.log("dataWatch antes:", dataWatch);
             setData(jsonReponse.result);
+            methods.reset({ people: jsonReponse.result });
         }
         getData();
-        methods.reset(data);
     }, []);
 
     const submitForm = async (person: IPersonData) => {

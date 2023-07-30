@@ -45,6 +45,7 @@ export default function Home() {
             setData(jsonReponse.result);
         }
         getData();
+        methods.reset(data);
     }, []);
 
     const submitForm = async (person: IPersonData) => {

@@ -31,7 +31,11 @@ export default function Home() {
     };
     const methods = useForm<InputValues>();
 
-    const { fields, append, remove } = useFieldArray({
+    const {
+        fields: peopleFields,
+        append: appendPeople,
+        remove: removePeople,
+    } = useFieldArray({
         control: methods.control,
         name: "people",
     });
@@ -42,7 +46,6 @@ export default function Home() {
             const jsonReponse = await response.json();
             console.log("-------- useEffect ---------");
             console.log(JSON.stringify(jsonReponse.result));
-            console.log("dataWatch antes:", dataWatch);
             setData(jsonReponse.result);
             methods.reset({ people: jsonReponse.result });
         }
@@ -66,6 +69,8 @@ export default function Home() {
         console.log(jsonReponse);
         setData(jsonReponse.result);
     };
+    console.log(peopleFields);
+    console.log(dataWatch);
 
     const handleAddPerson = async () => {
         const response = await fetch(`${BASE_URL}/add-person`, {
@@ -84,7 +89,7 @@ export default function Home() {
             <p>You can add, delete and edit people.</p>
             <FormProvider {...methods}>
                 <PeopleList
-                    people={data?.people as IPersonData[]}
+                    people={peopleFields as IPersonData[]}
                     submitForm={submitForm}
                     handleAddPerson={handleAddPerson}
                 />

@@ -17,7 +17,6 @@ const Wrapper = styled.div`
 export interface InputValues extends IPersonDataResponse {}
 
 export default function Home() {
-    const [data, setData] = useState<InputValues>();
     const defaultValues: InputValues = {
         people: [
             {
@@ -46,7 +45,6 @@ export default function Home() {
             const jsonReponse = await response.json();
             console.log("-------- useEffect ---------");
             console.log(JSON.stringify(jsonReponse.result));
-            setData(jsonReponse.result);
             methods.reset(jsonReponse.result);
         }
         getData();
@@ -67,7 +65,6 @@ export default function Home() {
 
         const jsonReponse = await response.json();
         console.log(jsonReponse);
-        setData(jsonReponse.result);
     };
     console.log(peopleFields);
     console.log(dataWatch);
@@ -79,9 +76,6 @@ export default function Home() {
         });
         const jsonReponse = await response.json();
         appendPeople(jsonReponse.result)
-        console.log("-------- handleAddPerson ---------");
-        console.log(JSON.stringify(jsonReponse.result));
-        // setData(jsonReponse.result);
     };
 
     return (

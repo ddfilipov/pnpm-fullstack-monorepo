@@ -47,7 +47,7 @@ export default function Home() {
             console.log("-------- useEffect ---------");
             console.log(JSON.stringify(jsonReponse.result));
             setData(jsonReponse.result);
-            methods.reset({ people: jsonReponse.result });
+            methods.reset(jsonReponse.result);
         }
         getData();
     }, []);

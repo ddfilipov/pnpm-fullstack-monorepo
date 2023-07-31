@@ -56,9 +56,7 @@ app.post("/post", (req, res) => {
 // response should update peopleObject but the response should be just the new person that has been added
 app.post("/add-person", (req, res) => {
     const nextId: number[] = peopleObject.people.flatMap((x) => x.id);
-    console.log(nextId);
     peopleObject.people.push({ id: Math.max(...nextId) + 1, name: "", dateOfBirth: new Date(), money: 0 });
-    console.log(peopleObject.people[peopleObject.people.length - 1]);
     res.send({ result: peopleObject.people[peopleObject.people.length - 1] });
 });
 

@@ -42,7 +42,7 @@ const peopleObject: IPersonDataResponse = {
     ],
 };
 
-app.get("/get", (req, res) => {
+app.get("/get-people", (req, res) => {
     console.log(peopleObject);
     res.send({ result: peopleObject });
 });
@@ -53,7 +53,7 @@ app.post("/post", (req, res) => {
 
     res.send({ result: peopleObject });
 });
-// response should update peopleObject but the response should be just the new person that has been added
+
 app.post("/add-person", (req, res) => {
     const nextId: number[] = peopleObject.people.flatMap((x) => x.id);
     peopleObject.people.push({ id: Math.max(...nextId) + 1, name: "", dateOfBirth: new Date(), money: 0 });

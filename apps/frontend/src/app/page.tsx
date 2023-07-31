@@ -41,7 +41,7 @@ export default function Home() {
     const dataWatch = useWatch({ control: methods.control, name: "people" });
     useEffect(() => {
         async function getData() {
-            const response = await fetch(`${BASE_URL}/get`);
+            const response = await fetch(`${BASE_URL}/get-people`);
             const jsonReponse = await response.json();
             console.log("-------- useEffect ---------");
             console.log(JSON.stringify(jsonReponse.result));
@@ -75,7 +75,7 @@ export default function Home() {
             headers: { "Content-Type": "application/json" },
         });
         const jsonReponse = await response.json();
-        appendPeople(jsonReponse.result)
+        appendPeople(jsonReponse.result);
     };
 
     return (

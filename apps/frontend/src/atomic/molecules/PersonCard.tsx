@@ -38,9 +38,10 @@ interface PersonCardProps {
     person: IPersonData;
     submitForm: (person: IPersonData) => void;
     handleDeletePerson: (personId: number, index: number) => void;
+    personIndex: number;
 }
 
-const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
+const PersonCard: FC<PersonCardProps> = ({ person, submitForm, handleDeletePerson, personIndex }) => {
     // TODO: up this form state to page???
     const [isEditMode, setIsEditMode] = useState<boolean>(false);
     const defaultValues: InputValues = {
@@ -165,7 +166,8 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
                                 buttonInputType="secondary"
                                 buttonType="button"
                                 label="DELETE"
-                                onClick={deletePerson}
+                                // onClick={deletePerson}
+                                onClick={() => handleDeletePerson(person.id, personIndex)}
                             />
                         </>
                     )}

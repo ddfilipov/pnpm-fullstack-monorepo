@@ -38,13 +38,14 @@ const PeopleList: FC<PeopleListProps> = ({ people, submitForm, handleAddPerson, 
     return (
         <>
             <Wrapper>
-                {people?.map((person) => {
+                {people?.map((person, index) => {
                     return (
                         <PersonCard
                             person={person}
                             key={person.id}
                             submitForm={submitForm}
                             handleDeletePerson={handleDeletePerson}
+                            personIndex={index}
                         />
                     );
                 })}

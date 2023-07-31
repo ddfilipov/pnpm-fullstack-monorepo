@@ -6,6 +6,7 @@ import { Controller, useForm } from "react-hook-form";
 import CustomCheckbox from "../atoms/CustomCheckbox";
 import { appColors } from "@/utils/colors";
 import CustomButton from "../atoms/CustomButton";
+import { BASE_URL } from "@/consts";
 
 const StyledBox = styled.div`
     display: flex;
@@ -69,7 +70,17 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
         reset();
     };
 
-    const deletePerson = async () => {};
+    const deletePerson = async () => {
+        console.log("que hago aqui?");
+        const response = await fetch(`${BASE_URL}/delete`, {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                id: person.id,
+            }),
+        });
+        console.log("resposneeee", response);
+    };
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>

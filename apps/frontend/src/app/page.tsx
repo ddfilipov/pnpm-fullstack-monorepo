@@ -78,9 +78,10 @@ export default function Home() {
             headers: { "Content-Type": "application/json" },
         });
         const jsonReponse = await response.json();
+        appendPeople(jsonReponse.result)
         console.log("-------- handleAddPerson ---------");
         console.log(JSON.stringify(jsonReponse.result));
-        setData(jsonReponse.result);
+        // setData(jsonReponse.result);
     };
 
     return (

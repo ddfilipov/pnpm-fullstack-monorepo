@@ -78,6 +78,19 @@ export default function Home() {
         appendPeople(jsonReponse.result);
     };
 
+    const handleDeletePerson = async (personId: number, index: number) => {
+        const response = await fetch(`${BASE_URL}/delete`, {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                id: personId,
+            }),
+        });
+        const jsonReponse = await response.json();
+        console.log("a ver ese json del DELETE:", jsonReponse);
+        removePeople(index);
+    };
+
     return (
         <Wrapper>
             <h1>People</h1>
@@ -87,6 +100,7 @@ export default function Home() {
                     people={peopleFields as IPersonData[]}
                     submitForm={submitForm}
                     handleAddPerson={handleAddPerson}
+                    handleDeletePerson={handleDeletePerson}
                 />
             </FormProvider>
         </Wrapper>

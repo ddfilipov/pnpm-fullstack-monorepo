@@ -37,6 +37,7 @@ interface InputValues {
 interface PersonCardProps {
     person: IPersonData;
     submitForm: (person: IPersonData) => void;
+    handleDeletePerson: (personId: number, index: number) => void;
 }
 
 const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {

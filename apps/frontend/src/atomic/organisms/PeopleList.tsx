@@ -30,15 +30,23 @@ interface PeopleListProps {
     people: IPersonData[];
     submitForm: (person: IPersonData) => void;
     handleAddPerson: () => void;
+    handleDeletePerson: (personId: number, index: number) => void;
 }
 
-const PeopleList: FC<PeopleListProps> = ({ people, submitForm, handleAddPerson }) => {
+const PeopleList: FC<PeopleListProps> = ({ people, submitForm, handleAddPerson, handleDeletePerson }) => {
     console.log(people);
     return (
         <>
             <Wrapper>
                 {people?.map((person) => {
-                    return <PersonCard person={person} key={person.id} submitForm={submitForm} />;
+                    return (
+                        <PersonCard
+                            person={person}
+                            key={person.id}
+                            submitForm={submitForm}
+                            handleDeletePerson={handleDeletePerson}
+                        />
+                    );
                 })}
                 <ButtonContainer>
                     <CustomButton

@@ -59,7 +59,7 @@ app.post("/add-person", (req, res) => {
     console.log(nextId);
     peopleObject.people.push({ id: Math.max(...nextId) + 1, name: "", dateOfBirth: new Date(), money: 0 });
     console.log(peopleObject.people[peopleObject.people.length - 1]);
-    res.send({ result: peopleObject });
+    res.send({ result: peopleObject.people[peopleObject.people.length - 1] });
 });
 
 // should do a patch to check out how it works

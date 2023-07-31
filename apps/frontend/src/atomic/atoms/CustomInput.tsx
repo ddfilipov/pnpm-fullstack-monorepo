@@ -28,7 +28,7 @@ const CustomInput: FC<CustomInputProps> = ({ value, onChange, label, type, disab
             {label ? <label>{label}:</label> : null}
             <StyledInput
                 type={type}
-                value={value.toString()}
+                value={value?.toString()}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
                 disabled={disabled}
                 $disabledStyle={disabled ?? false}

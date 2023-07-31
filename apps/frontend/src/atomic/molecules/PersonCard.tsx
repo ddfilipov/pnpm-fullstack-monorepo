@@ -69,6 +69,9 @@ const PersonCard: FC<PersonCardProps> = ({ person, submitForm }) => {
         reset();
     };
 
+    console.log("cardsssssss");
+    console.log(JSON.stringify(person));
+
     const deletePerson = async () => {};
 
     return (

@@ -17,17 +17,6 @@ const Wrapper = styled.div`
 export interface InputValues extends IPersonDataResponse {}
 
 export default function Home() {
-    const defaultValues: InputValues = {
-        people: [
-            {
-                id: 0,
-                name: "",
-                money: 0,
-                dateOfBirth: new Date(),
-                isVip: false,
-            },
-        ],
-    };
     const methods = useForm<InputValues>();
 
     const {

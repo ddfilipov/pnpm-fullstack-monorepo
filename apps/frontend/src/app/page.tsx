@@ -66,8 +66,6 @@ export default function Home() {
         const jsonReponse = await response.json();
         console.log(jsonReponse);
     };
-    console.log(peopleFields);
-    console.log(dataWatch);
 
     const handleAddPerson = async () => {
         const response = await fetch(`${BASE_URL}/add-person`, {

@@ -16,13 +16,14 @@ interface CustomButtonProps {
     buttonInputType: ButtonInputType;
     label: string;
     onClick?: React.MouseEventHandler;
-    buttonType: 'submit' | 'reset' | 'button' | undefined;
+    buttonType: "submit" | "reset" | "button" | undefined;
+    disabled?: boolean;
 }
 
-const CustomButton: FC<CustomButtonProps> = ({ buttonInputType, label, onClick, buttonType }) => {
+const CustomButton: FC<CustomButtonProps> = ({ buttonInputType, label, onClick, buttonType, disabled }) => {
     return (
         <>
-            <StyledButton $buttonInputType={buttonInputType} onClick={onClick} type={buttonType}>
+            <StyledButton $buttonInputType={buttonInputType} onClick={onClick} type={buttonType} disabled={disabled}>
                 {label}
             </StyledButton>
         </>

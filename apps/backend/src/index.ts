@@ -47,7 +47,7 @@ app.get("/get-people", (req, res) => {
     res.send({ result: peopleObject });
 });
 
-app.post("/post", (req, res) => {
+app.post("/edit-person", (req, res) => {
     const foundId = peopleObject.people.findIndex((person) => person.id === req.body.id);
     peopleObject.people.splice(foundId ?? peopleObject.people.length - 1, 1, req.body);
 

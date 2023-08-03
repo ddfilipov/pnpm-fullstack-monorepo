@@ -76,6 +76,7 @@ const PersonCard: FC<PersonCardProps> = ({
 
     const handleCancelEdit = () => {
         setIsEditMode(false);
+        handleIsAddButtonDisabled(false);
         reset();
     };
 

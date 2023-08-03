@@ -163,7 +163,7 @@ const PersonCard: FC<PersonCardProps> = ({
                                 buttonType="submit"
                                 key="submitButton"
                                 label="SAVE"
-                                onClick={handleCancelEdit}
+                                onClick={handleSavePerson}
                             />
                             <CustomButton
                                 buttonInputType="secondary"

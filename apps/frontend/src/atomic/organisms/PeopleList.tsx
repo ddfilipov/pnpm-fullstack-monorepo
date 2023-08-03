@@ -35,10 +35,10 @@ interface PeopleListProps {
 
 const PeopleList: FC<PeopleListProps> = ({ people, submitForm, handleAddPerson, handleDeletePerson }) => {
     console.log(people);
-    const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(false);
+    const [isAddButtonDisabled, setIsAddButtonDisabled] = useState<boolean>(false);
 
-    const handleIsButtonDisabled = (newButtonValue: boolean) => {
-        setIsButtonDisabled(newButtonValue);
+    const handleIsAddButtonDisabled = (newButtonValue: boolean) => {
+        setIsAddButtonDisabled(newButtonValue);
     };
 
     return (
@@ -52,6 +52,7 @@ const PeopleList: FC<PeopleListProps> = ({ people, submitForm, handleAddPerson, 
                             submitForm={submitForm}
                             handleDeletePerson={handleDeletePerson}
                             personIndex={index}
+                            handleIsAddButtonDisabled={handleIsAddButtonDisabled}
                         />
                     );
                 })}

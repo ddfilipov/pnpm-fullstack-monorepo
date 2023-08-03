@@ -39,9 +39,16 @@ interface PersonCardProps {
     submitForm: (person: IPersonData) => void;
     handleDeletePerson: (personId: number, index: number) => void;
     personIndex: number;
+    handleIsAddButtonDisabled: (newValue: boolean) => void;
 }
 
-const PersonCard: FC<PersonCardProps> = ({ person, submitForm, handleDeletePerson, personIndex }) => {
+const PersonCard: FC<PersonCardProps> = ({
+    person,
+    submitForm,
+    handleDeletePerson,
+    personIndex,
+    handleIsAddButtonDisabled,
+}) => {
     // TODO: up this form state to page???
     const [isEditMode, setIsEditMode] = useState<boolean>(false);
     const defaultValues: InputValues = {

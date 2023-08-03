@@ -40,7 +40,7 @@ export default function Home() {
     }, []);
 
     const submitForm = async (person: IPersonData) => {
-        const response = await fetch(`${BASE_URL}/post`, {
+        const response = await fetch(`${BASE_URL}/edit-person`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

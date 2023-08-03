@@ -62,7 +62,7 @@ const PeopleList: FC<PeopleListProps> = ({ people, submitForm, handleAddPerson, 
                         buttonType="button"
                         label="ADD PERSON"
                         onClick={handleAddPerson}
-                        disabled
+                        disabled={isAddButtonDisabled}
                     />
                 </ButtonContainer>
             </Wrapper>

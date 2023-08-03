@@ -90,6 +90,10 @@ const PersonCard: FC<PersonCardProps> = ({
         });
         console.log("resposneeee", response);
     };
+    const handleEditPerson = () => {
+        setIsEditMode(true);
+        handleIsAddButtonDisabled(true);
+    };
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -167,7 +171,7 @@ const PersonCard: FC<PersonCardProps> = ({
                                 buttonInputType="primary"
                                 buttonType="button"
                                 label="EDIT"
-                                onClick={() => setIsEditMode(true)}
+                                onClick={handleEditPerson}
                             />
                             <CustomButton
                                 buttonInputType="secondary"

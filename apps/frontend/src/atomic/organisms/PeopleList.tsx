@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { IPersonData } from "@pnpm-fullstack-monorepo/validation";
 import { styled } from "styled-components";
 import PersonCard from "../molecules/PersonCard";
@@ -35,6 +35,12 @@ interface PeopleListProps {
 
 const PeopleList: FC<PeopleListProps> = ({ people, submitForm, handleAddPerson, handleDeletePerson }) => {
     console.log(people);
+    const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(false);
+
+    const handleIsButtonDisabled = (newButtonValue: boolean) => {
+        setIsButtonDisabled(newButtonValue);
+    };
+
     return (
         <>
             <Wrapper>

@@ -80,6 +80,11 @@ const PersonCard: FC<PersonCardProps> = ({
         reset();
     };
 
+    const handleSavePerson = () => {
+        setIsEditMode(false);
+        handleIsAddButtonDisabled(false);
+    };
+
     const deletePerson = async () => {
         console.log("que hago aqui?");
         const response = await fetch(`${BASE_URL}/delete`, {
@@ -158,6 +163,7 @@ const PersonCard: FC<PersonCardProps> = ({
                                 buttonType="submit"
                                 key="submitButton"
                                 label="SAVE"
+                                onClick={handleCancelEdit}
                             />
                             <CustomButton
                                 buttonInputType="secondary"

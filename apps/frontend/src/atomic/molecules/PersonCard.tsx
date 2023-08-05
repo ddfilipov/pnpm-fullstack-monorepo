@@ -83,17 +83,17 @@ const PersonCard: FC<PersonCardProps> = ({
         handleIsAddButtonDisabled(false);
     };
 
-    const deletePerson = async () => {
-        console.log("que hago aqui?");
-        const response = await fetch(`${BASE_URL}/delete`, {
-            method: "DELETE",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                id: person.id,
-            }),
-        });
-        console.log("resposneeee", response);
-    };
+    // const deletePerson = async () => {
+    //     console.log("que hago aqui?");
+    //     const response = await fetch(`${BASE_URL}/delete`, {
+    //         method: "DELETE",
+    //         headers: { "Content-Type": "application/json" },
+    //         body: JSON.stringify({
+    //             id: person.id,
+    //         }),
+    //     });
+    //     console.log("resposneeee", response);
+    // };
     const handleEditPerson = () => {
         setIsEditMode(true);
         handleIsAddButtonDisabled(true);

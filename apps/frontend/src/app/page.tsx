@@ -27,7 +27,7 @@ export default function Home() {
         control: methods.control,
         name: "people",
     });
-    const dataWatch = useWatch({ control: methods.control, name: "people" });
+
     useEffect(() => {
         async function getData() {
             const response = await fetch(`${BASE_URL}/get-people`);

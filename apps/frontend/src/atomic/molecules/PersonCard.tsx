@@ -2,7 +2,7 @@ import { FC, useState } from "react";
 import { IPersonData } from "@pnpm-fullstack-monorepo/validation";
 import { styled } from "styled-components";
 import CustomInput from "../atoms/CustomInput";
-import { Controller, useForm } from "react-hook-form";
+import { Controller, useForm, useWatch } from "react-hook-form";
 import CustomCheckbox from "../atoms/CustomCheckbox";
 import { appColors } from "@/utils/colors";
 import CustomButton from "../atoms/CustomButton";
@@ -60,6 +60,8 @@ const PersonCard: FC<PersonCardProps> = ({
     };
     const { control, handleSubmit, reset } = useForm({ defaultValues: defaultValues });
 
+    const watchPerson = useWatch({ control });
+    console.log(watchPerson);
     // const onSubmit = async (data: InputValues) => {
     //     // const response = await fetch(`${BASE_URL}/delete`, {
     //     //     method: "DELETE",

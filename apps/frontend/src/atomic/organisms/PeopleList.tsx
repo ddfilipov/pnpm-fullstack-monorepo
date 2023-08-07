@@ -34,7 +34,7 @@ interface PeopleListProps {
 }
 
 const PeopleList: FC<PeopleListProps> = ({ people, handleEditPerson, handleAddPerson, handleDeletePerson }) => {
-    console.log(people);
+    // console.log(people);
     const [isAddButtonDisabled, setIsAddButtonDisabled] = useState<boolean>(false);
 
     const handleIsAddButtonDisabled = (newButtonValue: boolean) => {

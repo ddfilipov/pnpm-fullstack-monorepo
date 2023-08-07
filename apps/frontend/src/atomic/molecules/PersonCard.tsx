@@ -61,7 +61,6 @@ const PersonCard: FC<PersonCardProps> = ({
     const { control, handleSubmit, reset } = useForm({ defaultValues: defaultValues });
 
     const watchPerson = useWatch({ control });
-    console.log(watchPerson);
     // const onSubmit = async (data: InputValues) => {
     //     // const response = await fetch(`${BASE_URL}/delete`, {
     //     //     method: "DELETE",
@@ -83,7 +82,7 @@ const PersonCard: FC<PersonCardProps> = ({
     const handleSavePerson = () => {
         setIsEditMode(false);
         handleIsAddButtonDisabled(false);
-        console.log("person clicking SAVE:", person);
+        console.log("watchPerson clicking SAVE:", watchPerson);
     };
 
     const handleClickEdit = () => {

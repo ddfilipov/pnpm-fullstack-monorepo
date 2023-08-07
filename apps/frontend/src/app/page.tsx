@@ -32,8 +32,8 @@ export default function Home() {
         async function getData() {
             const response = await fetch(`${BASE_URL}/get-people`);
             const jsonReponse = await response.json();
-            console.log("-------- useEffect ---------");
-            console.log(JSON.stringify(jsonReponse.result));
+            // console.log("-------- useEffect ---------");
+            // console.log(JSON.stringify(jsonReponse.result));
             methods.reset(jsonReponse.result);
         }
         getData();
@@ -53,7 +53,7 @@ export default function Home() {
         });
 
         const jsonReponse = await response.json();
-        console.log(jsonReponse);
+        // console.log(jsonReponse);
     };
 
     const handleAddPerson = async () => {
@@ -74,7 +74,7 @@ export default function Home() {
             }),
         });
         const jsonReponse = await response.json();
-        console.log("a ver ese json del DELETE:", jsonReponse);
+        // console.log("a ver ese json del DELETE:", jsonReponse);
         removePeople(index);
     };
 

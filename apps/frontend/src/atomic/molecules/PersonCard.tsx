@@ -81,12 +81,13 @@ const PersonCard: FC<PersonCardProps> = ({
     const handleSavePerson = () => {
         setIsEditMode(false);
         handleIsAddButtonDisabled(false);
+        console.log("person clicking SAVE:", person);
     };
 
     const handleClickEdit = () => {
         setIsEditMode(true);
         handleIsAddButtonDisabled(true);
-        console.log("haz cosas");
+        console.log("person clicking EDIT:", person);
     };
 
     // const deletePerson = async () => {

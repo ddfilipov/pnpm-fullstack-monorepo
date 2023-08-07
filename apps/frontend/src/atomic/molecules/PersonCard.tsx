@@ -83,7 +83,9 @@ const PersonCard: FC<PersonCardProps> = ({
         handleIsAddButtonDisabled(false);
     };
 
-    const handleClickSave = () => {
+    const handleClickEdit = () => {
+        setIsEditMode(true);
+        handleIsAddButtonDisabled(true);
         console.log("haz cosas");
     };
 
@@ -180,7 +182,7 @@ const PersonCard: FC<PersonCardProps> = ({
                                 buttonInputType="primary"
                                 buttonType="button"
                                 label="EDIT"
-                                onClick={handleClickSave}
+                                onClick={handleClickEdit}
                             />
                             <CustomButton
                                 buttonInputType="secondary"

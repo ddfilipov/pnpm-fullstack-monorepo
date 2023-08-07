@@ -28,12 +28,12 @@ const ButtonContainer = styled.div`
 
 interface PeopleListProps {
     people: IPersonData[];
-    submitForm: (person: IPersonData) => void;
+    handleEditPerson: (person: IPersonData) => void;
     handleAddPerson: () => void;
     handleDeletePerson: (personId: number, index: number) => void;
 }
 
-const PeopleList: FC<PeopleListProps> = ({ people, submitForm, handleAddPerson, handleDeletePerson }) => {
+const PeopleList: FC<PeopleListProps> = ({ people, handleEditPerson, handleAddPerson, handleDeletePerson }) => {
     console.log(people);
     const [isAddButtonDisabled, setIsAddButtonDisabled] = useState<boolean>(false);
 
@@ -49,7 +49,7 @@ const PeopleList: FC<PeopleListProps> = ({ people, submitForm, handleAddPerson, 
                         <PersonCard
                             person={person}
                             key={person.id}
-                            submitForm={submitForm}
+                            handleEditPerson={handleEditPerson}
                             handleDeletePerson={handleDeletePerson}
                             personIndex={index}
                             handleIsAddButtonDisabled={handleIsAddButtonDisabled}

@@ -36,7 +36,7 @@ interface InputValues {
 
 interface PersonCardProps {
     person: IPersonData;
-    submitForm: (person: IPersonData) => void;
+    handleEditPerson: (person: IPersonData) => void;
     handleDeletePerson: (personId: number, index: number) => void;
     personIndex: number;
     handleIsAddButtonDisabled: (newValue: boolean) => void;
@@ -44,7 +44,7 @@ interface PersonCardProps {
 
 const PersonCard: FC<PersonCardProps> = ({
     person,
-    submitForm,
+    handleEditPerson,
     handleDeletePerson,
     personIndex,
     handleIsAddButtonDisabled,
@@ -60,17 +60,17 @@ const PersonCard: FC<PersonCardProps> = ({
     };
     const { control, handleSubmit, reset } = useForm({ defaultValues: defaultValues });
 
-    const onSubmit = async (data: InputValues) => {
-        // const response = await fetch(`${BASE_URL}/delete`, {
-        //     method: "DELETE",
-        //     headers: { "Content-Type": "application/json" },
-        //     body: JSON.stringify({
-        //         id: person.id,
-        //     }),
-        // });
-        setIsEditMode(false);
-        submitForm(data);
-    };
+    // const onSubmit = async (data: InputValues) => {
+    //     // const response = await fetch(`${BASE_URL}/delete`, {
+    //     //     method: "DELETE",
+    //     //     headers: { "Content-Type": "application/json" },
+    //     //     body: JSON.stringify({
+    //     //         id: person.id,
+    //     //     }),
+    //     // });
+    //     setIsEditMode(false);
+    //     handleEditPerson(data);
+    // };
 
     const handleCancelEdit = () => {
         setIsEditMode(false);
@@ -81,6 +81,10 @@ const PersonCard: FC<PersonCardProps> = ({
     const handleSavePerson = () => {
         setIsEditMode(false);
         handleIsAddButtonDisabled(false);
+    };
+
+    const handleClickSave = () => {
+        console.log("haz cosas");
     };
 
     // const deletePerson = async () => {
@@ -94,13 +98,13 @@ const PersonCard: FC<PersonCardProps> = ({
     //     });
     //     console.log("resposneeee", response);
     // };
-    const handleEditPerson = () => {
-        setIsEditMode(true);
-        handleIsAddButtonDisabled(true);
-    };
+    // const handleEditPerson = () => {
+    //     setIsEditMode(true);
+    //     handleIsAddButtonDisabled(true);
+    // };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form>
             <StyledBox key={person.id}>
                 <Controller
                     name="name"
@@ -176,7 +180,7 @@ const PersonCard: FC<PersonCardProps> = ({
                                 buttonInputType="primary"
                                 buttonType="button"
                                 label="EDIT"
-                                onClick={handleEditPerson}
+                                onClick={handleClickSave}
                             />
                             <CustomButton
                                 buttonInputType="secondary"

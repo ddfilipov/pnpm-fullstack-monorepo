@@ -39,7 +39,7 @@ export default function Home() {
         getData();
     }, []);
 
-    const submitForm = async (person: IPersonData) => {
+    const handleEditPerson = async (person: IPersonData) => {
         const response = await fetch(`${BASE_URL}/edit-person`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -85,7 +85,7 @@ export default function Home() {
             <FormProvider {...methods}>
                 <PeopleList
                     people={peopleFields as IPersonData[]}
-                    submitForm={submitForm}
+                    handleEditPerson={handleEditPerson}
                     handleAddPerson={handleAddPerson}
                     handleDeletePerson={handleDeletePerson}
                 />

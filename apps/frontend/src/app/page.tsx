@@ -40,19 +40,20 @@ export default function Home() {
     }, []);
 
     const handleEditPerson = async (person: IPersonData) => {
-        const response = await fetch(`${BASE_URL}/edit-person`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                id: person.id,
-                name: person.name,
-                money: person.money,
-                dateOfBirth: person.dateOfBirth,
-                isVip: person.isVip,
-            }),
-        });
+        console.log("person:", JSON.stringify(person));
+        // const response = await fetch(`${BASE_URL}/edit-person`, {
+        //     method: "POST",
+        //     headers: { "Content-Type": "application/json" },
+        //     body: JSON.stringify({
+        //         id: person.id,
+        //         name: person.name,
+        //         money: person.money,
+        //         dateOfBirth: person.dateOfBirth,
+        //         isVip: person.isVip,
+        //     }),
+        // });
 
-        const jsonReponse = await response.json();
+        // const jsonReponse = await response.json();
         // console.log(jsonReponse);
     };
 

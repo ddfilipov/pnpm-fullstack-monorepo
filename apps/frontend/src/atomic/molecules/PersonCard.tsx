@@ -83,6 +83,7 @@ const PersonCard: FC<PersonCardProps> = ({
         setIsEditMode(false);
         handleIsAddButtonDisabled(false);
         // TODO: isVip is undefined if u don't make it true once
+        handleEditPerson(watchPerson as IPersonData);
         console.log("watchPerson clicking SAVE:", watchPerson);
     };
 

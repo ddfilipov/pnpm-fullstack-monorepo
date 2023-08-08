@@ -27,7 +27,7 @@ const StyledButtonsContainer = styled.div`
 `;
 
 interface InputValues {
-    id: number;
+    personId: number;
     name: string;
     money: number;
     dateOfBirth: Date;
@@ -52,7 +52,7 @@ const PersonCard: FC<PersonCardProps> = ({
     // TODO: up this form state to page???
     const [isEditMode, setIsEditMode] = useState<boolean>(false);
     const defaultValues: InputValues = {
-        id: person.personId,
+        personId: person.personId,
         name: person.name,
         money: person.money,
         dateOfBirth: person.dateOfBirth,

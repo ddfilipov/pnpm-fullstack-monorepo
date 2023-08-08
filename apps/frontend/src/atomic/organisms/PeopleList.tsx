@@ -40,7 +40,7 @@ const PeopleList: FC<PeopleListProps> = ({ people, handleEditPerson, handleAddPe
     const handleIsAddButtonDisabled = (newButtonValue: boolean) => {
         setIsAddButtonDisabled(newButtonValue);
     };
-
+    console.log(JSON.stringify(people));
     return (
         <>
             <Wrapper>

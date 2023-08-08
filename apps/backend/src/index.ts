@@ -48,9 +48,10 @@ app.get("/get-people", (req, res) => {
 });
 
 app.post("/edit-person", (req, res) => {
-    const foundId = peopleObject.people.findIndex((person) => person.personId === req.body.id);
+    // const foundId = peopleObject.people.findIndex((person) => person.personId === req.body.id);
     // peopleObject.people.splice(foundId ?? peopleObject.people.length - 1, 1, req.body);
-    console.log("foundId::", foundId);
+    // console.log("foundId::", foundId);
+    console.log(JSON.stringify(req.body));
     res.send({ result: "encontrado" });
 });
 

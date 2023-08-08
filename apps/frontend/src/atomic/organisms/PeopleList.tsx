@@ -48,7 +48,7 @@ const PeopleList: FC<PeopleListProps> = ({ people, handleEditPerson, handleAddPe
                     return (
                         <PersonCard
                             person={person}
-                            key={person.id}
+                            key={person.personId}
                             handleEditPerson={handleEditPerson}
                             handleDeletePerson={handleDeletePerson}
                             personIndex={index}

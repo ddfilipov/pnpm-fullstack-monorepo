@@ -52,7 +52,7 @@ const PersonCard: FC<PersonCardProps> = ({
     // TODO: up this form state to page???
     const [isEditMode, setIsEditMode] = useState<boolean>(false);
     const defaultValues: InputValues = {
-        id: person.id,
+        id: person.personId,
         name: person.name,
         money: person.money,
         dateOfBirth: person.dateOfBirth,
@@ -111,7 +111,7 @@ const PersonCard: FC<PersonCardProps> = ({
 
     return (
         <form>
-            <StyledBox key={person.id}>
+            <StyledBox key={person.personId}>
                 <Controller
                     name="name"
                     rules={{ required: "This field is required" }}
@@ -193,7 +193,7 @@ const PersonCard: FC<PersonCardProps> = ({
                                 buttonType="button"
                                 label="DELETE"
                                 // onClick={deletePerson}
-                                onClick={() => handleDeletePerson(person.id, personIndex)}
+                                onClick={() => handleDeletePerson(person.personId, personIndex)}
                             />
                         </>
                     )}

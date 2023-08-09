@@ -51,7 +51,8 @@ app.post("/edit-person", (req, res) => {
     const foundIndex = peopleObject.people.findIndex((person) => person.personId === req.body.id);
     peopleObject.people.splice(foundIndex ?? peopleObject.people.length - 1, 1, req.body);
     console.log("foundIndex::", foundIndex);
-    console.log(JSON.stringify(req.body));
+    const editedPerson = peopleObject.people[foundIndex];
+    console.log(JSON.stringify(editedPerson));
     res.send({ result: "encontrado" });
 });
 

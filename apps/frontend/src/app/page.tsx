@@ -23,6 +23,7 @@ export default function Home() {
         fields: peopleFields,
         append: appendPeople,
         remove: removePeople,
+        update: updatePeople,
     } = useFieldArray({
         control: methods.control,
         name: "people",

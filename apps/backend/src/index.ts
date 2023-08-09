@@ -53,7 +53,7 @@ app.post("/edit-person", (req, res) => {
     console.log("foundIndex::", foundIndex);
     const editedPerson = peopleObject.people[foundIndex];
     console.log(JSON.stringify(editedPerson));
-    res.send({ result: "encontrado" });
+    res.send({ result: editedPerson });
 });
 
 app.post("/add-person", (req, res) => {

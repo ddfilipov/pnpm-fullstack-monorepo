@@ -54,8 +54,9 @@ export default function Home() {
             }),
         });
 
-        // const jsonReponse = await response.json();
-        // console.log(jsonReponse);
+        const jsonReponse = await response.json();
+        console.log("lemme see that edited person");
+        console.log(jsonReponse);
     };
 
     const handleAddPerson = async () => {

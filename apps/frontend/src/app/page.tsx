@@ -55,6 +55,7 @@ export default function Home() {
         });
 
         const jsonReponse = await response.json();
+        updatePeople(1, jsonReponse.result);
         console.log("lemme see that edited person");
         console.log(jsonReponse);
     };

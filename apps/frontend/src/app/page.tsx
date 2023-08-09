@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import PeopleList from "../atomic/organisms/PeopleList";
 import { IPersonData, IPersonDataResponse } from "@pnpm-fullstack-monorepo/validation";
 import { styled } from "styled-components";
 import { BASE_URL } from "@/consts";
-import { FormProvider, useFieldArray, useForm, useWatch } from "react-hook-form";
+import { FormProvider, useFieldArray, useForm } from "react-hook-form";
 
 const Wrapper = styled.div`
     display: flex;

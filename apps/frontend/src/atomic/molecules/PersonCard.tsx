@@ -6,7 +6,6 @@ import { Controller, useForm, useWatch } from "react-hook-form";
 import CustomCheckbox from "../atoms/CustomCheckbox";
 import { appColors } from "@/utils/colors";
 import CustomButton from "../atoms/CustomButton";
-import { BASE_URL } from "@/consts";
 
 const StyledBox = styled.div`
     display: flex;

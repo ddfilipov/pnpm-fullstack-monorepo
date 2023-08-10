@@ -3,7 +3,6 @@ import { IPersonData } from "@pnpm-fullstack-monorepo/validation";
 import { styled } from "styled-components";
 import PersonCard from "../molecules/PersonCard";
 import CustomButton from "../atoms/CustomButton";
-import { InputValues } from "@/app/page";
 
 const Wrapper = styled.div`
     display: flex;

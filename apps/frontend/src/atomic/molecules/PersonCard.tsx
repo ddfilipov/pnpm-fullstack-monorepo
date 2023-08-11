@@ -92,22 +92,6 @@ const PersonCard: FC<PersonCardProps> = ({
         console.log("person clicking EDIT:", person);
     };
 
-    // const deletePerson = async () => {
-    //     console.log("que hago aqui?");
-    //     const response = await fetch(`${BASE_URL}/delete`, {
-    //         method: "DELETE",
-    //         headers: { "Content-Type": "application/json" },
-    //         body: JSON.stringify({
-    //             id: person.id,
-    //         }),
-    //     });
-    //     console.log("resposneeee", response);
-    // };
-    // const handleEditPerson = () => {
-    //     setIsEditMode(true);
-    //     handleIsAddButtonDisabled(true);
-    // };
-
     return (
         <form>
             <StyledBox key={person.personId}>

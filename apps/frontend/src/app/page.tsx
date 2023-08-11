@@ -46,7 +46,7 @@ export default function Home() {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-                id: person.personId,
+                personId: person.personId,
                 name: person.name,
                 money: person.money,
                 dateOfBirth: person.dateOfBirth,

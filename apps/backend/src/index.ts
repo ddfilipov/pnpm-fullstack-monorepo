@@ -48,7 +48,7 @@ app.get("/get-people", (req, res) => {
 });
 
 app.post("/edit-person", (req, res) => {
-    const foundIndex = peopleObject.people.findIndex((person) => person.personId === req.body.id);
+    const foundIndex = peopleObject.people.findIndex((person) => person.personId === req.body.personId);
     peopleObject.people.splice(foundIndex ?? peopleObject.people.length - 1, 1, req.body);
     console.log("foundIndex::", foundIndex);
     const editedPerson = peopleObject.people[foundIndex];
@@ -66,7 +66,7 @@ app.post("/add-person", (req, res) => {
 
 app.delete("/delete", (req, res) => {
     console.log("a ver ese delete", req.body);
-    const foundId = peopleObject.people.findIndex((person) => person.personId === req.body.id);
+    const foundId = peopleObject.people.findIndex((person) => person.personId === req.body.personId);
     peopleObject.people.splice(foundId ?? peopleObject.people.length - 1, 1);
 
     res.send({ result: peopleObject });

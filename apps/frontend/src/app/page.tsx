@@ -77,6 +77,7 @@ export default function Home() {
                 id: personId,
             }),
         });
+        // TODO: shouldn't I return a message saying it's all cool or what
         const jsonReponse = await response.json();
         // console.log("a ver ese json del DELETE:", jsonReponse);
         removePeople(index);

@@ -40,7 +40,7 @@ export default function Home() {
         getData();
     }, []);
 
-    const handleEditPerson = async (person: IPersonData) => {
+    const handleEditPerson = async (person: IPersonData, index: number) => {
         console.log("person:", JSON.stringify(person));
         const response = await fetch(`${BASE_URL}/edit-person`, {
             method: "POST",
@@ -55,7 +55,7 @@ export default function Home() {
         });
 
         const jsonReponse = await response.json();
-        updatePeople(1, jsonReponse.result);
+        updatePeople(index, jsonReponse.result);
         console.log("lemme see that edited person");
         console.log(jsonReponse);
     };

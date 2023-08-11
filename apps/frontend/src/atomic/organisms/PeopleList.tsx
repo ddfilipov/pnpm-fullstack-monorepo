@@ -27,7 +27,7 @@ const ButtonContainer = styled.div`
 
 interface PeopleListProps {
     people: IPersonData[];
-    handleEditPerson: (person: IPersonData) => void;
+    handleEditPerson: (person: IPersonData, index: number) => void;
     handleAddPerson: () => void;
     handleDeletePerson: (personId: number, index: number) => void;
 }

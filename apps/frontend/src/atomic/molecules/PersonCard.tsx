@@ -35,7 +35,7 @@ interface InputValues {
 
 interface PersonCardProps {
     person: IPersonData;
-    handleEditPerson: (person: IPersonData) => void;
+    handleEditPerson: (person: IPersonData, index: number) => void;
     handleDeletePerson: (personId: number, index: number) => void;
     personIndex: number;
     handleIsAddButtonDisabled: (newValue: boolean) => void;
@@ -82,7 +82,7 @@ const PersonCard: FC<PersonCardProps> = ({
         setIsEditMode(false);
         handleIsAddButtonDisabled(false);
         // TODO: isVip is undefined if u don't make it true once
-        handleEditPerson(watchPerson as IPersonData);
+        handleEditPerson(watchPerson as IPersonData, personIndex);
         console.log("watchPerson clicking SAVE:", watchPerson);
     };
 

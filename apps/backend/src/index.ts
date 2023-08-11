@@ -1,7 +1,7 @@
 import express from "express";
 import * as bodyParser from "body-parser";
 import cors from "cors";
-import { IPersonData, IPersonDataResponse } from "@pnpm-fullstack-monorepo/validation";
+import { IPersonDataResponse } from "@pnpm-fullstack-monorepo/validation";
 
 const app = express();
 const port = 5000;

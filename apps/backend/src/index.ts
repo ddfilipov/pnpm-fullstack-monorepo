@@ -69,7 +69,8 @@ app.delete("/delete-person", (req, res) => {
     const foundId = peopleObject.people.findIndex((person) => person.personId === req.body.personId);
     peopleObject.people.splice(foundId ?? peopleObject.people.length - 1, 1);
 
-    res.send({ result: peopleObject });
+    // res.send({ result: peopleObject });
+    res.sendStatus(200)
 });
 
 app.listen(port, () => console.log(`App listening to PORT: ${port}`));

@@ -70,7 +70,7 @@ export default function Home() {
     };
 
     const handleDeletePerson = async (personId: number, index: number) => {
-        const response = await fetch(`${BASE_URL}/delete`, {
+        const response = await fetch(`${BASE_URL}/delete-person`, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

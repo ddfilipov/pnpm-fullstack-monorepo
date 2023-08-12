@@ -64,7 +64,7 @@ app.post("/add-person", (req, res) => {
 
 // should do a patch to check out how it works
 
-app.delete("/delete", (req, res) => {
+app.delete("/delete-person", (req, res) => {
     console.log("a ver ese delete", req.body);
     const foundId = peopleObject.people.findIndex((person) => person.personId === req.body.personId);
     peopleObject.people.splice(foundId ?? peopleObject.people.length - 1, 1);

@@ -78,7 +78,7 @@ export default function Home() {
                     id: personId,
                 }),
             });
-            // TODO: shouldn't I return a message saying it's all cool or what
+            // TODO: do something different with response.status
             console.log("a ver ese json del DELETE:", response.status);
             removePeople(index);
         } catch {}

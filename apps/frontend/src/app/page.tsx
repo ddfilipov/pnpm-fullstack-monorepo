@@ -70,16 +70,18 @@ export default function Home() {
     };
 
     const handleDeletePerson = async (personId: number, index: number) => {
-        const response = await fetch(`${BASE_URL}/delete-person`, {
-            method: "DELETE",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                id: personId,
-            }),
-        });
-        // TODO: shouldn't I return a message saying it's all cool or what
-        console.log("a ver ese json del DELETE:", response.status);
-        removePeople(index);
+        try {
+            const response = await fetch(`${BASE_URL}/delete-person`, {
+                method: "DELETE",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    id: personId,
+                }),
+            });
+            // TODO: shouldn't I return a message saying it's all cool or what
+            console.log("a ver ese json del DELETE:", response.status);
+            removePeople(index);
+        } catch {}
     };
 
     return (

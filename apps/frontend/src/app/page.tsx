@@ -81,7 +81,9 @@ export default function Home() {
             // TODO: do something different with response.status
             console.log("a ver ese json del DELETE:", response.status);
             removePeople(index);
-        } catch {}
+        } catch (error: any) {
+            console.log("error DELETE:::", error);
+        }
     };
 
     return (

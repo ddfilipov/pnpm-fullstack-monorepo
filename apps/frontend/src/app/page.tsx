@@ -79,6 +79,7 @@ export default function Home() {
                 }),
             });
             // TODO: do something different with response.status
+            // if 200 then all good, otherwise = error
             console.log("a ver ese json del DELETE:", response.status);
             removePeople(index);
         } catch (error: any) {
